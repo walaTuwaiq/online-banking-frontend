@@ -1,0 +1,41 @@
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 3%;
+    border:1px solid red;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.signup-input{
+    width: 40%;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 1%;
+}
+
+.signup-form label{
+    font-size: 20px;
+}
+
+.signup-form button{
+    width: 44%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.policy{
+    display: flex;
+    margin: auto;
+    /* border: 1px solid black; */
+    /* width: 40%; */
+    /* margin: auto; */
+}
+
+/* .checkbox-input{
+    width: 40px;
+    border: 1px solid red;
+} */
