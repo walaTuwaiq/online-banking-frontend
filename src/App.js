@@ -11,28 +11,40 @@ import TransferMoney from "./component/TransferMoney";
 import UpdateData from "./component/UpdateData";
 import Contact from "./component/Contact";
 import Payment from "./component/Payment";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setToken } from "./reducers/token";
 
 function App() {
+  let token = useSelector((state) => state.token.token);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(!token && localStorage.getItem("token") !== ""){
+      dispatch(setToken(JSON.parse(localStorage.getItem("token"))))
+    }
+  }, []);
+
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Switch>
-      <Route path="/" exact /> 
-      {/* component={login} */}
-        <Route path="/home" exact component={Home}/>
-        <Route path="/card" exact component={ViewCard}/>
-        <Route path="/history-balance" exact component={HistoryBalance}/>
-        <Route path="/about-us" exact component={AboutUs}/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="/signup" exact component={Signup}/>
-        <Route path="/transfer-money" exact component={TransferMoney}/>
-        <Route path="/update-data" exact component={UpdateData}/>
-        <Route path="/customer-service" exact component={Contact}/>
-        <Route path="/payment" exact component={Payment}/>
+        <Route path="/" exact />
+        {/* component={login} */}
+        <Route path="/home" exact component={Home} />
+        <Route path="/card" exact component={ViewCard} />
+        <Route path="/history-balance" exact component={HistoryBalance} />
+        <Route path="/about-us" exact component={AboutUs} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={Signup} />
+        <Route path="/transfer-money" exact component={TransferMoney} />
+        <Route path="/update-data" exact component={UpdateData} />
+        <Route path="/customer-service" exact component={Contact} />
+        <Route path="/payment" exact component={Payment} />
         <Route path="*" exact component={NotFoundPage} />
       </Switch>
     </div>
   );
 }
 
-export default App; 
+export default App;

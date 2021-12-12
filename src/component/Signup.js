@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import "../styles/Signup.css"
 import axios from 'axios';
@@ -15,6 +15,7 @@ export default function Signup() {
     const [errorMessage, setErrorMessage] = useState("")
     const history = useHistory()
 
+    
 
     const saveDate=(e)=>{
         setDate(e.target.value)
@@ -48,14 +49,20 @@ export default function Signup() {
         if(date!=="" && firstName !== "" && secondName !== "" && userName !=="" && password !== ""){
             if(check && nationalId.length === 10){
                 try {
-                    await axios.post("http://localhost:5000/signup",{
+                    const response = await axios.post("http://localhost:5000/signup",{
                         userName,
                         fullName: `${firstName} ${secondName}`,
                         password,
                         dateOfBirth:date,
                         nationalId
                     })
-                    history.push("/home")
+
+                    if(response.status === 201){
+                        history.push("/home")
+                    } else{
+                        setErrorMessage(response.data)
+                        console.log(response.data);
+                    }
                 } catch (error) {
                     console.log(error);
                 }
@@ -99,7 +106,12 @@ export default function Signup() {
                 {/* <Link to="/home"> */}
                     <button onClick={()=>{submitDate()}}>Sign up</button>
                 
-                {errorMessage}
+                <p className='error-message'>
+                {errorMessage+" "}
+                {
+                    errorMessage == "You are already have account."? <Link className='error-message-link' to="/login">Log in</Link> : ""
+                }
+                </p>
             </div>
         </div>
     )

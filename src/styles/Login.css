@@ -1,4 +1,4 @@
-.signup-form{
+.login-form{
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -11,7 +11,7 @@
     border-radius: 1rem;
 }
 
-.signup-input{
+.login-input{
     width: 40%;
     text-align: center;
     justify-content: center;
@@ -22,11 +22,11 @@
     height: 17px;
 }
 
-.signup-form label{
+.login-form label{
     font-size: 20px;
 }
 
-.signup-form button{
+.login-form button{
     width: 44%;
     height: 30px;
     margin: auto;
@@ -40,34 +40,8 @@
 
 }
 
-.signup-form button:hover{
+.login-form button:hover{
     background-color: rgba(99, 0, 0, 0.10);
     cursor: pointer;
     color: rgb(99, 0, 0,0.7);
-}
-
-.policy{
-    display: flex;
-    margin: auto;
-    /* border: 1px solid black; */
-    /* width: 40%; */
-    /* margin: auto; */
-}
-
-/* .checkbox-input{
-    width: 40px;
-    border: 1px solid red;
-} */
-
-.error-message{
-    color: red;
-}
-
-.error-message-link{
-    text-decoration: none;
-    color: rgb(17, 17, 99);
-}
-
-.error-message-link:hover{
-    text-decoration: underline;
 }
