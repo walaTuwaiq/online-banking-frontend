@@ -3,10 +3,12 @@
     flex-direction: column;
     width: 60%;
     padding: 3%;
-    border:1px solid red;
+    /* border:1px solid red; */
     margin: auto;
     text-align: center;
     justify-content: center;
+    box-shadow: 2px 2px 5px 2px rgb(99, 0, 0,0.5);
+    border-radius: 1rem;
 }
 
 .signup-input{
@@ -15,6 +17,9 @@
     justify-content: center;
     margin: auto;
     margin-bottom: 1%;
+    color: rgb(99, 0, 0,0.8);
+    border: 1px solid rgb(99, 0, 0,0.5);
+    height: 17px;
 }
 
 .signup-form label{
@@ -23,8 +28,22 @@
 
 .signup-form button{
     width: 44%;
+    height: 30px;
     margin: auto;
     margin-top: 2%;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: rgba(99, 0, 0, 0.20);
+    border: 1px solid rgba(99, 0, 0, 0.30);
+    border-radius: 0.5rem;
+    color: rgb(99, 0, 0,0.5);
+
+}
+
+.signup-form button:hover{
+    background-color: rgba(99, 0, 0, 0.10);
+    cursor: pointer;
+    color: rgb(99, 0, 0,0.7);
 }
 
 .policy{

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import "../styles/Signup.css"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -12,6 +13,7 @@ export default function Signup() {
     const [nationalId, setNationalId] = useState(0)
     const [check, setCheck] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
+    const history = useHistory()
 
 
     const saveDate=(e)=>{
@@ -53,6 +55,7 @@ export default function Signup() {
                         dateOfBirth:date,
                         nationalId
                     })
+                    history.push("/home")
                 } catch (error) {
                     console.log(error);
                 }
@@ -93,12 +96,9 @@ export default function Signup() {
                     <input className='checkbox-input' type="checkbox" onChange={saveCheck}/>
                     I Agree to all privacy policy
                 </div>
-                <Link to="/home">
+                {/* <Link to="/home"> */}
                     <button onClick={()=>{submitDate()}}>Sign up</button>
-                </Link>
-                {console.log(typeof nationalId)}
-                {console.log(firstName === "")}
-                {console.log(typeof userName)}
+                
                 {errorMessage}
             </div>
         </div>
