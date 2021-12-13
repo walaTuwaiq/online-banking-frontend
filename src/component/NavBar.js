@@ -20,10 +20,14 @@ export default function NavBar() {
             <li className="navbar-item">LOGO</li>
           </Link>
         )}
+        {token ? (
+          <Link to="/home" className="navbar-link">
+            <li className="navbar-item">Home</li>
+          </Link>
+        ) : (
+          ""
+        )}
 
-        <Link to="/home" className="navbar-link">
-          <li className="navbar-item">Home</li>
-        </Link>
         <Link to="about-us" className="navbar-link">
           <li className="navbar-item">About</li>
         </Link>
