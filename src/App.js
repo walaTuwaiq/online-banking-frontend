@@ -14,6 +14,8 @@ import Payment from "./component/Payment";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setToken } from "./reducers/token";
+import OneHistoryPayment from "./component/OneHistoryPayment";
+import OneHistoryTransaction from "./component/OneHistoryTransaction";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -23,7 +25,7 @@ function App() {
     if(!token && localStorage.getItem("token") !== ""){
       dispatch(setToken(JSON.parse(localStorage.getItem("token"))))
     }
-  }, []);
+  }, [token]);
 
   return (
     <div>
@@ -41,6 +43,8 @@ function App() {
         <Route path="/update-data" exact component={UpdateData} />
         <Route path="/customer-service" exact component={Contact} />
         <Route path="/payment" exact component={Payment} />
+        <Route path="/full-data-payment/:id" exact component={OneHistoryPayment} />
+        <Route path="/full-data-transaction/:id" exact component={OneHistoryTransaction} />
         <Route path="*" exact component={NotFoundPage} />
       </Switch>
     </div>

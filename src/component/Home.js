@@ -21,14 +21,17 @@ export default function Home() {
         })
         setUserData(response.data)
     }
-    getUserData()
-  }, []);
+    if(token){
+      getUserData()
+    }
+  }, [token]);
 
   return (
     <div>
       {/* {console.log(token)}
       {console.log(userName)} */}
       {/* {console.log(userData)} */}
+      {/* <button onClick={()=>{console.log(token)}}>token</button> */}
       <div className="user-data-container">
         <h2>{userData.fullName}</h2>
         <h4>Balance</h4>
