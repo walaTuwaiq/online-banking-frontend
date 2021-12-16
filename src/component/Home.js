@@ -9,6 +9,7 @@ import axios from "axios";
 
 export default function Home() {
     const [userData, setUserData] = useState([]);
+    const [showToggle, setShowToggle] = useState(false)
     const token = useSelector((state) => state.token.token);
     const userName = useSelector((state) => state.token.user_name);
 
@@ -20,11 +21,16 @@ export default function Home() {
               }  
         })
         setUserData(response.data)
+        // console.log(response.data);
     }
     if(token){
       getUserData()
     }
   }, [token]);
+
+  const changeToggle = ()=>{
+    setShowToggle(!showToggle)
+  }
 
   return (
     <div>
@@ -32,15 +38,29 @@ export default function Home() {
       {console.log(userName)} */}
       {/* {console.log(userData)} */}
       {/* <button onClick={()=>{console.log(token)}}>token</button> */}
-      <div className="user-data-container">
-        <h2>{userData.fullName}</h2>
-        <h4>Balance</h4>
-        <img className="show-hide-icons" src={hideIcon} alt="hide-icon" />
-        <img className="show-hide-icons" src={showIcon} alt="show-icon" />
+      {
+        userData.user && <div className="user-data-container">
+        <h2>{userData.user.fullName}</h2>
+        {
+          showToggle?
+            <div>
+              <h4>{userData.userCards[0].balance} SR</h4>
+              <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={hideIcon} alt="hide-icon" />
+            </div>
+            :
+            <div>
+              <h4>************* SR</h4>
+              <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={showIcon} alt="show-icon" />
+            </div>
+        }
+        
+        
         <br />
-        <h4>IBAN Number</h4>
-        <img className="copy-icon" src={copyIcone} alt="copy-icon" />
+        <h4>SA{userData.userCards[0].ibanNumber}</h4>
+        <img className="copy-icon" onClick={() => {navigator.clipboard.writeText(userData.userCards[0].ibanNumber)}} src={copyIcone} alt="copy-icon" />
       </div>
+      }
+      
 
       <div className="content-container">
         <Link className="content-links" to="/history-balance">
