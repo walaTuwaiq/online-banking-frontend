@@ -14,7 +14,7 @@
 .copy-icon{
     width: 14px;
     position: relative;
-    top: 3px;
+    top: 1px;
     left: 10px;
 }
 
@@ -23,13 +23,15 @@
 }
 
 .show-hide-icons{
-    width: 30px;
+    width: 25px;
     position: relative;
     left: 80%;
 }
 
 .show-hide-icons:hover{
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.192);
+    border-radius: 1rem;
 }
 
 .content-container{
@@ -39,7 +41,6 @@
     margin: auto;
     width: 80%;
     border-top: 1px solid rgba(99, 0, 0, 0.04);
-    /* border: 1px solid black; */
     margin-top: 5%;
     padding: 1%;
 }
@@ -67,4 +68,35 @@
     transition: 0.5s;
     text-decoration: underline;
     background-color: rgba(99, 0, 0, 0.10);
+}
+
+.balance-container{
+    display: flex;
+}
+
+.balance{
+    width: 90%;
+}
+
+.icon{
+    width: 20%;
+
+}
+
+.iban-container{
+    display: flex;
+}
+
+.iban-container .iban-num{
+    width: 20%;
+}
+
+.iban-container .img{
+    width: 4%;
+}
+
+.iban-container .msg{
+    width: auto;
+    font-size: 13px;
+    margin-top: 0.5%;
 }

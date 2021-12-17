@@ -32,9 +32,9 @@ export default function UpdateData() {
     setToggle(!toggle);
   };
 
-  const updateData = async () => {
-      if(userInput !== ""){
-          const response = await axios.put(
+  const updateData = async (e) => {
+    if(userInput !== ""){
+      const response = await axios.put(
             "http://localhost:5000/update-data",
             {
               userName: userInput,
@@ -46,15 +46,17 @@ export default function UpdateData() {
             }
           );
           console.log(response.data);
-      
+          
           if (response.status === 201) {
+            //it's mean somthing about click button and refresh browser!
+            // e.preventDefault();
+            
             console.log(response.data);
-          //   changeToggle();
+            //   changeToggle();
             setUserData(response.data);
             setErrorMessage("")
-            setToggle(!toggle)
           }
-      } else{
+        } else{
         setErrorMessage("Please enter new user name!")
       }
   };
@@ -76,8 +78,11 @@ export default function UpdateData() {
               onChange={userNameInput}
             />
             <button
-              onClick={() => {
-                updateData();
+              onClick={(e) => {
+                //It's work but not working like i want, must refresh browser to change user
+                setToggle(!toggle)
+                updateData(e);
+
               }}
             >
               Save Changes

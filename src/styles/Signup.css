@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    padding: 3%;
+    padding: 2%;
     /* border:1px solid red; */
     margin: auto;
     text-align: center;
@@ -44,6 +44,12 @@
     background-color: rgba(99, 0, 0, 0.10);
     cursor: pointer;
     color: rgb(99, 0, 0,0.7);
+}
+
+.signup-form select{
+    width: 40%;
+    margin: auto;
+    margin-bottom: 3%;
 }
 
 .policy{

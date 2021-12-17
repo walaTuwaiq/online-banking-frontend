@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Home.css";
-import copyIcone from "../media/copy-icon.jpg";
-import hideIcon from "../media/hide.jpg";
-import showIcon from "../media/show.jpg";
+import copyIcone from "../media/copy-icon.png";
+import hideIcon from "../media/hide.png";
+import showIcon from "../media/show.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -10,8 +10,9 @@ import axios from "axios";
 export default function Home() {
     const [userData, setUserData] = useState([]);
     const [showToggle, setShowToggle] = useState(false)
+    const [titleToggle, setTitleToggle] = useState("")
     const token = useSelector((state) => state.token.token);
-    const userName = useSelector((state) => state.token.user_name);
+    // const userName = useSelector((state) => state.token.user_name);
 
   useEffect(() => {
     const getUserData = async()=>{
@@ -32,6 +33,13 @@ export default function Home() {
     setShowToggle(!showToggle)
   }
 
+  const copiedIcon = ()=>{
+    setTitleToggle("Copied!")
+    setTimeout(() => {
+      setTitleToggle("")
+    }, 1300);
+  }
+
   return (
     <div>
       {/* {console.log(token)}
@@ -43,44 +51,74 @@ export default function Home() {
         <h2>{userData.user.fullName}</h2>
         {
           showToggle?
-            <div>
-              <h4>{userData.userCards[0].balance} SR</h4>
-              <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={hideIcon} alt="hide-icon" />
+            <div className="balance-container">
+              <div className="balance">
+                <h4>Your Balance: {userData.userCards[0].balance} SR</h4>
+              </div>
+              <div className="icon">
+                <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={hideIcon} alt="hide-icon" />
+              </div>
             </div>
             :
-            <div>
-              <h4>************* SR</h4>
-              <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={showIcon} alt="show-icon" />
+            <div className="balance-container">
+              <div className="balance">
+                <h4>Your Balance: ************</h4>
+              </div>
+              <div className="icon">
+                <img onClick={()=>{changeToggle()}} className="show-hide-icons" src={showIcon} alt="show-icon" />
+              </div>
             </div>
         }
         
-        
         <br />
-        <h4>SA{userData.userCards[0].ibanNumber}</h4>
-        <img className="copy-icon" onClick={() => {navigator.clipboard.writeText(userData.userCards[0].ibanNumber)}} src={copyIcone} alt="copy-icon" />
+        <div className="iban-container">
+          <div className="iban-num">
+            <h4>SA{userData.userCards[0].ibanNumber}</h4>
+          </div>
+          <div className="img">
+            <img className="copy-icon" title="copy" onClick={() => {copiedIcon(); navigator.clipboard.writeText(userData.userCards[0].ibanNumber)}} src={copyIcone} alt="copy-icon" />
+          </div>
+          <div className="msg">
+            {titleToggle}
+          </div>
+        </div>
+
+        <br />
       </div>
       }
       
 
       <div className="content-container">
-        <Link className="content-links" to="/history-balance">
-          <div className="content-item">History Balance</div>
-        </Link>
-        <Link className="content-links" to="/transfer-money">
-          <div className="content-item">Transfer Money</div>
-        </Link>
-        <Link className="content-links" to="/update-data">
-          <div className="content-item">Update Data</div>
-        </Link>
-        <Link className="content-links" to="/card">
-          <div className="content-item">View Card</div>
-        </Link>
-        <Link className="content-links" to="/customer-service">
-          <div className="content-item">Customer Service</div>
-        </Link>
-        <Link className="content-links" to="/payment">
-          <div className="content-item">Online Payment</div>
-        </Link>
+          <div className="content-item">
+            <Link className="content-links" to="/history-balance">
+                History Balance
+            </Link>
+            </div>
+          <div className="content-item">
+            <Link className="content-links" to="/transfer-money">
+                Transfer Money
+            </Link>
+            </div>
+          <div className="content-item">
+              <Link className="content-links" to="/update-data">
+                Update Data
+              </Link>
+            </div>
+          <div className="content-item">
+              <Link className="content-links" to="/card">
+                View Card
+              </Link>
+          </div>
+          <div className="content-item">
+              <Link className="content-links" to="/customer-service">
+                Customer Service
+              </Link>
+          </div>
+          <div className="content-item">
+              <Link className="content-links" to="/payment">
+                Online Payment
+              </Link>
+          </div>
       </div>
     </div>
   );

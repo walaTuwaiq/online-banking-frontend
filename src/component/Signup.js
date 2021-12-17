@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import "../styles/Signup.css"
 import axios from 'axios';
@@ -13,6 +13,8 @@ export default function Signup() {
     const [nationalId, setNationalId] = useState(0)
     const [check, setCheck] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
+    const [nationality, setNationality] = useState("")
+    
     const history = useHistory()
 
     
@@ -41,6 +43,10 @@ export default function Signup() {
         setNationalId(e.target.value)
     }
 
+    const saveNationality = (e)=>{
+        setNationality(e.target.value)
+    }
+
     const saveCheck = (e)=>{
         setCheck(e.target.checked)
     }
@@ -54,11 +60,12 @@ export default function Signup() {
                         fullName: `${firstName} ${secondName}`,
                         password,
                         dateOfBirth:date,
-                        nationalId
+                        nationalId,
+                        nationality,
                     })
 
                     if(response.status === 201){
-                        history.push("/home")
+                        history.push("/login")
                     } else{
                         setErrorMessage(response.data)
                         console.log(response.data);
@@ -99,17 +106,54 @@ export default function Signup() {
                 <label htmlFor="">national id:</label>
                 <input className='signup-input' type="number" placeholder='national id' onChange={saveNationalId} />
 
+                <label htmlFor="">nationality:</label>
+                <select onChange={saveNationality} name="nationality">
+                    <option value="">-- select one --</option>
+                    <option value="afghan">Afghan</option>
+                    <option value="american">American</option>
+                    <option value="australian">Australian</option>
+                    <option value="bahraini">Bahraini</option>
+                    <option value="canadian">Canadian</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="egyptian">Egyptian</option>
+                    <option value="filipino">Filipino</option>
+                    <option value="french">French</option>
+                    <option value="german">German</option>
+                    <option value="indian">Indian</option>
+                    <option value="indonesian">Indonesian</option>
+                    <option value="iraqi">Iraqi</option>
+                    <option value="italian">Italian</option>
+                    <option value="jordanian">Jordanian</option>
+                    <option value="kazakhstani">Kazakhstani</option>
+                    <option value="kenyan">Kenyan</option>
+                    <option value="kuwaiti">Kuwaiti</option>
+                    <option value="lebanese">Lebanese</option>
+                    <option value="omani">Omani</option>
+                    <option value="pakistani">Pakistani</option>
+                    <option value="qatari">Qatari</option>
+                    <option value="russian">Russian</option>
+                    <option value="saudi">Saudi</option>
+                    <option value="south african">South African</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="sudanese">Sudanese</option>
+                    <option value="syrian">Syrian</option>
+                    <option value="turkish">Turkish</option>
+                    <option value="yemenite">Yemenite</option>
+                </select>
+
+                {/* {nationality} */}
+                {/* Selected right option */}
+
                 <div className='policy'>
                     <input className='checkbox-input' type="checkbox" onChange={saveCheck}/>
                     I Agree to all privacy policy
                 </div>
-                {/* <Link to="/home"> */}
                     <button onClick={()=>{submitDate()}}>Sign up</button>
                 
                 <p className='error-message'>
                 {errorMessage+" "}
                 {
-                    errorMessage == "You are already have account."? <Link className='error-message-link' to="/login">Log in</Link> : ""
+                    errorMessage === "You are already have account."? <Link className='error-message-link' to="/login">Log in</Link> : ""
                 }
                 </p>
             </div>

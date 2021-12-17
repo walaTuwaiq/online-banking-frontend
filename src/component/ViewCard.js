@@ -15,6 +15,7 @@ export default function ViewCard() {
         },
       });
 
+      console.log(response.data);
       setUserData(response.data)
     };
 
@@ -32,7 +33,7 @@ export default function ViewCard() {
               userData.card && <div className="card_no text">{userData.card[0].ibanNumber}</div> 
           }
           {
-              userData.user && <div className="valid_date text">{userData.user.dateOfBirth}</div> 
+              userData.user && <div className="valid_date text">{userData.card[0].expiredDate}</div> 
           }
           {
               userData.user && <div className="holder text">{userData.user.fullName}</div> 

@@ -17,6 +17,7 @@ import { setToken } from "./reducers/token";
 import OneHistoryPayment from "./component/OneHistoryPayment";
 import OneHistoryTransaction from "./component/OneHistoryTransaction";
 import DepositMoney from "./component/DepositMoney";
+import Footer from "./component/Footer";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -50,6 +51,7 @@ function App() {
         <Route path="/full-data-transaction/:id" exact component={OneHistoryTransaction} />
         <Route path="*" exact component={NotFoundPage} />
       </Switch>
+      <Footer/>
     </div>
   );
 }

@@ -1,13 +1,18 @@
 import axios from 'axios';
 import React,{useState, useEffect} from 'react'
 import { useSelector } from "react-redux";
+import Receipt from './Receipt';
 
 export default function TransferMoney() {
     const [toInput, setToInput] = useState("")
     const [amountInput, setAmountInput] = useState(0)
     const [ibanCards, setIbanCards] = useState([])
-    const [resultSearch, setArrayResultSearch] = useState([])
+    const [resultSearch, setResultSearch] = useState([])
     const [ibanNumber, setIbanNumber] = useState(0)
+    const [currentUserBalance, setCurrentUserBalance] = useState(0)
+    const [currentUserIban, setCurrentUserIban] = useState(0)
+    const [toggle, setToggle] = useState(false)
+
     const token = useSelector((state) => state.token.token);
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
@@ -17,7 +22,8 @@ export default function TransferMoney() {
             const response = await axios.get("http://localhost:5000/iban-cards")
 
             setIbanCards(response.data)
-
+            // console.log(response.data);
+            // right data. array of objects
         }
         getIbans()
     }, [])
@@ -30,12 +36,14 @@ export default function TransferMoney() {
         const result = ibanCards.filter((elem,index)=>{
             return elem.ibanNumber == ibanNumber
         })
-        setArrayResultSearch(result)
+        console.log(result,"result");
+        // empty array
+
+        setResultSearch(result)
     }
 
     const saveToInput = (id)=>{
         setToInput(id)
-        console.log(id);
     }
 
     const saveAmountInput = (e)=>{
@@ -51,7 +59,12 @@ export default function TransferMoney() {
                 authorization: `Bearer ${token}`,
               },
         })
-        console.log(response.data);
+        if(response.status === 201){
+            setToggle(true)
+            setCurrentUserBalance(Number(response.data.balance))
+            setCurrentUserIban(Number(response.data.ibanNumber))
+        }
+        console.log(response.data, "DONE");
     }
 
     return (
@@ -63,24 +76,33 @@ export default function TransferMoney() {
             {console.log(ibanNumber,"ibanNumber")}
             {console.log(resultSearch,"resultSearch")}
 
-            <h3>Current date is {date}</h3>
-            <input type="text" onChange={saveSearch}/>
-            <button onClick={()=>{findIbanBySearch()}}>Search</button>
-            
+
             {
-                resultSearch && resultSearch.map((elem,index)=>{
-                    return <div key={index}>
-                        {
-                            elem.ibanNumber? <p onClick={()=>{saveToInput(elem._id)}}>{elem.ibanNumber}</p> : <p>CCC</p>
-                        }
-                        
-                    </div>
-                })
+                toggle? <Receipt toInput={toInput} amount={Number(amountInput)} ibanNumber={ibanNumber} currentUserBalance={currentUserBalance} currentUserIban={currentUserIban} /> 
+                :
+                 <div>
+                    
+                    <h3>Current date is {date}</h3>
+                    <input type="text" onChange={saveSearch}/>
+                    <button onClick={()=>{findIbanBySearch()}}>Search</button>
+                    
+                    {
+                        resultSearch && resultSearch.map((elem,index)=>{
+                            return <div key={index}>
+                                {
+                                    elem.ibanNumber? <p onClick={()=>{saveToInput(elem._id)}}>{elem.ibanNumber}</p> : <p>CCC</p>
+                                }
+                                
+                            </div>
+                        })
+                    }
+
+                    {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}
+                    <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
+                    <button onClick={()=>{submitTransaction()}}>Transfer</button>
+                </div>
             }
 
-            {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}
-            <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
-            <button onClick={()=>{submitTransaction()}}>Transfer</button>
             </div>
         </div>
     )
