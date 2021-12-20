@@ -96,7 +96,12 @@
 }
 
 .iban-container .msg{
-    width: auto;
-    font-size: 13px;
-    margin-top: 0.5%;
+    /* width: auto; */
+    /* border: 1px solid red; */
+    height: 13px;
+    position: relative;
+    left: -27px;
+    top: -16px;
+    background-color: rgba(255, 255, 255, 0.397);
+    font-size: 11px;
 }

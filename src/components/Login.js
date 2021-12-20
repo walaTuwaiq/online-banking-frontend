@@ -30,10 +30,12 @@ export default function Login() {
           userName,
           password,
         });
-        console.log(response.data);
+        console.log(response.data, "login");
         if(response.status === 201){
-          dispatch(setToken(response.data.token,response.data.payload.userId,response.data.payload.userName))
+          dispatch(setToken(response.data.token,response.data.payload.userId,response.data.payload.isAdmin))
           localStorage.setItem("token", JSON.stringify(response.data.token))
+          localStorage.setItem("admin", JSON.stringify(response.data.payload.isAdmin))
+          // console.log(response.data,"data log in");
           history.push("/home");
         } else{
           setErrorMessage(response.data)

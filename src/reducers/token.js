@@ -1,13 +1,12 @@
 const initialState = {
   token: "",
-  user_id: "",
-  user_name: "",
+  user_admin:"",
 };
 
-export const setToken = (token, user_id, user_name) => {
+export const setToken = (token, user_admin) => {
   return {
     type: "SET_TOKEN",
-    payload: { token, user_id, user_name },
+    payload: { token, user_admin },
   };
 };
 
@@ -16,8 +15,7 @@ const token = (state = initialState, { type, payload }) => {
     case "SET_TOKEN":
       return {
         token: payload.token,
-        user_id: payload.user_id,
-        user_name: payload.user_name,
+        user_admin: payload.user_admin,
       };
 
     default:

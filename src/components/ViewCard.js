@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function ViewCard() {
     const [userData, setUserData] = useState([])
+    const [userExpireDate, setUserExpireDate] = useState("")
   const token = useSelector((state) => state.token.token);
 
   useEffect(() => {
@@ -15,7 +16,15 @@ export default function ViewCard() {
         },
       });
 
-      console.log(response.data);
+      // To show expired date in card
+      const fullExpireDate = response.data.card[0].expiredDate.split("")
+      let expireDate = []
+      for(let i=0 ; i<10 ; i++){
+        expireDate.push(fullExpireDate[i])
+      }
+      setUserExpireDate(expireDate.join(""))
+      // console.log(expireDate.join(""),"expireDate");
+      
       setUserData(response.data)
     };
 
@@ -33,7 +42,7 @@ export default function ViewCard() {
               userData.card && <div className="card_no text">{userData.card[0].ibanNumber}</div> 
           }
           {
-              userData.user && <div className="valid_date text">{userData.card[0].expiredDate}</div> 
+              userData.user && <div className="valid_date text">{userExpireDate}</div> 
           }
           {
               userData.user && <div className="holder text">{userData.user.fullName}</div> 

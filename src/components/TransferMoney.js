@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useState, useEffect} from 'react'
 import { useSelector } from "react-redux";
 import Receipt from './Receipt';
+import "../styles/TransferMoney.css"
 
 export default function TransferMoney() {
     const [toInput, setToInput] = useState("")
@@ -11,7 +12,9 @@ export default function TransferMoney() {
     const [ibanNumber, setIbanNumber] = useState(0)
     const [currentUserBalance, setCurrentUserBalance] = useState(0)
     const [currentUserIban, setCurrentUserIban] = useState(0)
+    const [errorMessage, setErrorMessage] = useState("")
     const [toggle, setToggle] = useState(false)
+    const [toggleToTransfer, setToggleToTransfer] = useState(false)
 
     const token = useSelector((state) => state.token.token);
     const current = new Date();
@@ -44,6 +47,7 @@ export default function TransferMoney() {
 
     const saveToInput = (id)=>{
         setToInput(id)
+        setToggleToTransfer(true)
     }
 
     const saveAmountInput = (e)=>{
@@ -51,20 +55,25 @@ export default function TransferMoney() {
     }
 
     const submitTransaction= async()=>{
-        const response = await axios.post("http://localhost:5000/transaction",{
-            to: toInput,
-            amount: Number(amountInput),
-        },{
-            headers: {
-                authorization: `Bearer ${token}`,
-              },
-        })
-        if(response.status === 201){
-            setToggle(true)
-            setCurrentUserBalance(Number(response.data.balance))
-            setCurrentUserIban(Number(response.data.ibanNumber))
+        try {
+            const response = await axios.post("http://localhost:5000/transaction",{
+                to: toInput,
+                amount: Number(amountInput),
+            },{
+                headers: {
+                    authorization: `Bearer ${token}`,
+                  },
+            })
+    
+            if(response.status === 201){
+                setToggle(true)
+                setCurrentUserBalance(Number(response.data.balance))
+                setCurrentUserIban(Number(response.data.ibanNumber))
+            }
+            
+        } catch (error) {
+            setErrorMessage(error.response.data)
         }
-        console.log(response.data, "DONE");
     }
 
     return (
@@ -90,7 +99,7 @@ export default function TransferMoney() {
                         resultSearch && resultSearch.map((elem,index)=>{
                             return <div key={index}>
                                 {
-                                    elem.ibanNumber? <p onClick={()=>{saveToInput(elem._id)}}>{elem.ibanNumber}</p> : <p>CCC</p>
+                                    elem.ibanNumber? <p className='iban-num' onClick={()=>{saveToInput(elem._id)}}>{elem.ibanNumber}</p> : ""
                                 }
                                 
                             </div>
@@ -98,8 +107,19 @@ export default function TransferMoney() {
                     }
 
                     {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}
-                    <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
-                    <button onClick={()=>{submitTransaction()}}>Transfer</button>
+                    {
+                        toggleToTransfer && <div className='amount-div'>
+                            <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
+                            <button onClick={()=>{submitTransaction()}}>Transfer</button>
+                        </div>
+                    }
+                    
+                    <p>
+                        {
+                            errorMessage
+                        }
+                    </p>
+                    
                 </div>
             }
 

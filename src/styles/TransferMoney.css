@@ -1,0 +1,7 @@
+.iban-num:hover{
+    cursor: pointer;
+}
+
+.amount-div{
+    transition: 1s ease;
+}

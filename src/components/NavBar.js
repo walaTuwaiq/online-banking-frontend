@@ -6,6 +6,7 @@ import { setToken } from "../reducers/token";
 
 export default function NavBar() {
   const token = useSelector((state) => state.token.token);
+  const isAdmin = useSelector((state) => state.token.user_admin);
   const dispatch = useDispatch();
 
   return (
@@ -28,15 +29,24 @@ export default function NavBar() {
           ""
         )}
 
-        <Link to="about-us" className="navbar-link">
+        <Link to="/about-us" className="navbar-link">
           <li className="navbar-item">About</li>
         </Link>
+
+        {isAdmin && (
+          <Link to="/admin-settings" className="navbar-link">
+            <li className="navbar-item">Settings</li>
+          </Link>
+        )}
+
         {token ? (
           <Link
             to="/"
+            className="navbar-link"
             onClick={() => {
               dispatch(setToken("", "", ""));
               localStorage.setItem("token", "");
+              localStorage.setItem("admin", "");
             }}
           >
             Log out

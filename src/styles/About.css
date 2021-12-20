@@ -1,5 +1,5 @@
 .body-about-us{
-    background-color: #d8b6a4;
+    background-color: #d8b6a47a;
     width: 100%;
     height: 100%;
 }
@@ -19,19 +19,32 @@
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: auto;
     margin-bottom: 2%;
+    /* border: 1px solid black; */
+
 }
 
 .about-card img{
+    opacity: 60%;
     width: 60%;
+    padding: 3%;
+    /* border: 1px solid black; */
+    height: 350px;
+    transition: 0.5s;
+}
+
+.about-card img:hover{
+    transition: 0.6s;
+    opacity: 90%;
 }
 
 .about-card p{
-    width: 60%;
+    /* width: 60%; */
     padding: 1%;
+    /* border: 1px solid black; */
+
     font-size: 18px;
     /* direction: ltr; */
     text-align: left;

@@ -1,23 +1,25 @@
 import { Route, Switch } from "react-router-dom";
-import HistoryBalance from "./component/HistoryBalance";
-import Home from "./component/Home";
-import NavBar from "./component/NavBar";
-import ViewCard from "./component/ViewCard";
-import NotFoundPage from "./component/NotFoundPage";
-import AboutUs from "./component/AboutUs";
-import Login from "./component/Login";
-import Signup from "./component/Signup";
-import TransferMoney from "./component/TransferMoney";
-import UpdateData from "./component/UpdateData";
-import Contact from "./component/Contact";
-import Payment from "./component/Payment";
+import HistoryBalance from "./components/HistoryBalance";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
+import ViewCard from "./components/ViewCard";
+import NotFoundPage from "./components/NotFoundPage";
+import AboutUs from "./components/AboutUs";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import TransferMoney from "./components/TransferMoney";
+import UpdateData from "./components/UpdateData";
+import Contact from "./components/Contact";
+import Payment from "./components/Payment";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setToken } from "./reducers/token";
-import OneHistoryPayment from "./component/OneHistoryPayment";
-import OneHistoryTransaction from "./component/OneHistoryTransaction";
-import DepositMoney from "./component/DepositMoney";
-import Footer from "./component/Footer";
+import OneHistoryPayment from "./components/OneHistoryPayment";
+import OneHistoryTransaction from "./components/OneHistoryTransaction";
+import DepositMoney from "./components/DepositMoney";
+import Footer from "./components/Footer";
+import AddMoney from "./components/AddMoney";
+import Settings from "./components/Settings";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -25,7 +27,7 @@ function App() {
 
   useEffect(() => {
     if(!token && localStorage.getItem("token") !== ""){
-      dispatch(setToken(JSON.parse(localStorage.getItem("token"))))
+      dispatch(setToken(JSON.parse(localStorage.getItem("token")),JSON.parse(localStorage.getItem("admin"))))
     }
   }, [token]);
 
@@ -46,6 +48,8 @@ function App() {
         <Route path="/customer-service" exact component={Contact} />
         <Route path="/payment" exact component={Payment} />
         <Route path="/deposit-money" exact component={DepositMoney} />
+        <Route path="/add-money" exact component={AddMoney} />
+        <Route path="/admin-settings" exact component={Settings} />
         {/* <Route path="/update-data" exact component={UpdateData} /> */}
         <Route path="/full-data-payment/:id" exact component={OneHistoryPayment} />
         <Route path="/full-data-transaction/:id" exact component={OneHistoryTransaction} />
