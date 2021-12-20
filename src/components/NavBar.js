@@ -34,8 +34,8 @@ export default function NavBar() {
         </Link>
 
         {isAdmin && (
-          <Link to="/admin-settings" className="navbar-link">
-            <li className="navbar-item">Settings</li>
+          <Link to="/admin-dashboard" className="navbar-link">
+            <li className="navbar-item">Dashboard</li>
           </Link>
         )}
 
@@ -44,7 +44,7 @@ export default function NavBar() {
             to="/"
             className="navbar-link"
             onClick={() => {
-              dispatch(setToken("", "", ""));
+              dispatch(setToken("", ""));
               localStorage.setItem("token", "");
               localStorage.setItem("admin", "");
             }}

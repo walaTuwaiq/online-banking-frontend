@@ -49,7 +49,7 @@ export default function Settings() {
                 cards.map((elem,index)=>{
                     return <div>
                         <p>Iban number: {elem.ibanNumber}</p>
-                        <p>Balance: {elem.balance}</p>
+                        <p>Balance: {elem.balance}SR</p>
                         <p>Expired date: {elem.expiredDate}</p>
                         <hr />
                     </div>

@@ -32,7 +32,7 @@ export default function Login() {
         });
         console.log(response.data, "login");
         if(response.status === 201){
-          dispatch(setToken(response.data.token,response.data.payload.userId,response.data.payload.isAdmin))
+          dispatch(setToken(response.data.token,response.data.payload.isAdmin))
           localStorage.setItem("token", JSON.stringify(response.data.token))
           localStorage.setItem("admin", JSON.stringify(response.data.payload.isAdmin))
           // console.log(response.data,"data log in");

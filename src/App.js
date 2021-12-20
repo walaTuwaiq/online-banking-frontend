@@ -19,15 +19,44 @@ import OneHistoryTransaction from "./components/OneHistoryTransaction";
 import DepositMoney from "./components/DepositMoney";
 import Footer from "./components/Footer";
 import AddMoney from "./components/AddMoney";
-import Settings from "./components/Settings";
+import Dashboard from "./components/Dashboard";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function App() {
   let token = useSelector((state) => state.token.token);
-  const dispatch = useDispatch()
+  const isAdmin = useSelector((state) => state.token.user_admin);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  useEffect(() => {
-    if(!token && localStorage.getItem("token") !== ""){
-      dispatch(setToken(JSON.parse(localStorage.getItem("token")),JSON.parse(localStorage.getItem("admin"))))
+  useEffect(async () => {
+    if (!token && localStorage.getItem("token") !== "") {
+      dispatch(
+        setToken(
+          JSON.parse(localStorage.getItem("token")),
+          JSON.parse(localStorage.getItem("admin"))
+        )
+      );
+    }
+    try {
+      console.log(token, "token");
+      const response = await axios.get("http://localhost:5000/login", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log(response.data, "response");
+    } catch (error) {
+      if (token) {
+        dispatch(setToken("", "", ""));
+        localStorage.setItem("token", "");
+        localStorage.setItem("admin", "");
+        history.push("/");
+        alert("Log in again");
+      }
+
+      console.log(error.response.data, "error");
     }
   }, [token]);
 
@@ -35,27 +64,46 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route path="/" exact />
         {/* component={login} */}
-        <Route path="/home" exact component={Home} />
-        <Route path="/card" exact component={ViewCard} />
-        <Route path="/history-balance" exact component={HistoryBalance} />
+        {token && (
+          <div>
+            <Route path="/home" exact component={Home} />
+            <Route path="/card" exact component={ViewCard} />
+            <Route path="/history-balance" exact component={HistoryBalance} />
+            <Route path="/transfer-money" exact component={TransferMoney} />
+            <Route path="/update-data" exact component={UpdateData} />
+            <Route path="/customer-service" exact component={Contact} />
+            <Route path="/payment" exact component={Payment} />
+            <Route path="/deposit-money" exact component={DepositMoney} />
+            <Route
+              path="/full-data-payment/:id"
+              exact
+              component={OneHistoryPayment}
+            />
+            <Route
+              path="/full-data-transaction/:id"
+              exact
+              component={OneHistoryTransaction}
+            />
+          </div>
+        )}
+        {
+              console.log(isAdmin,"isAdmin")
+            }
+        {isAdmin && (
+          <div>
+            <Route path="/add-money" exact component={AddMoney} />
+            <Route path="/admin-dashboard" exact component={Dashboard} />
+          </div>
+        )}
+        <Route path="/" exact />
         <Route path="/about-us" exact component={AboutUs} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
-        <Route path="/transfer-money" exact component={TransferMoney} />
-        <Route path="/update-data" exact component={UpdateData} />
-        <Route path="/customer-service" exact component={Contact} />
-        <Route path="/payment" exact component={Payment} />
-        <Route path="/deposit-money" exact component={DepositMoney} />
-        <Route path="/add-money" exact component={AddMoney} />
-        <Route path="/admin-settings" exact component={Settings} />
         {/* <Route path="/update-data" exact component={UpdateData} /> */}
-        <Route path="/full-data-payment/:id" exact component={OneHistoryPayment} />
-        <Route path="/full-data-transaction/:id" exact component={OneHistoryTransaction} />
         <Route path="*" exact component={NotFoundPage} />
       </Switch>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

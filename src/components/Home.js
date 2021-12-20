@@ -140,15 +140,13 @@ export default function Home() {
             Online Payment
           </Link>
         </div>
-        {userData.user && userData.user.isAdmin ? (
+        {isAdmin &&
           <div className="content-item">
             <Link className="content-links" to="/add-money">
               Add Money
             </Link>
           </div>
-        ) : (
-          ""
-        )}
+        }
       </div>
     </div>
   );
