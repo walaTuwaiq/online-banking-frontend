@@ -45,7 +45,7 @@ export default function UpdateData() {
               },
             }
           );
-          console.log(response.data);
+          console.log(response.data,"response");
           
           if (response.status === 201) {
             //it's mean somthing about click button and refresh browser!

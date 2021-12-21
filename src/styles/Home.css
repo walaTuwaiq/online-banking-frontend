@@ -94,6 +94,10 @@
     width: 20%;
 }
 
+.iban-num h4{
+    cursor: auto;
+}
+
 .iban-container .img{
     width: 4%;
 }

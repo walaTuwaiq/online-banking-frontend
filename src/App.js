@@ -22,6 +22,7 @@ import AddMoney from "./components/AddMoney";
 import Dashboard from "./components/Dashboard";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Settings from "./components/Settings";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -63,10 +64,39 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Switch>
-        {/* component={login} */}
-        {token && (
-          <div>
+      {token? isAdmin? <div>
+              <Switch>
+                <Route path="/home" exact component={Home} />
+                <Route path="/card" exact component={ViewCard} />
+                <Route
+                  path="/history-balance"
+                  exact
+                  component={HistoryBalance}
+                />
+                <Route path="/transfer-money" exact component={TransferMoney} />
+                <Route path="/update-data" exact component={UpdateData} />
+                <Route path="/customer-service" exact component={Contact} />
+                <Route path="/payment" exact component={Payment} />
+                <Route path="/deposit-money" exact component={DepositMoney} />
+                <Route
+                  path="/full-data-payment/:id"
+                  exact
+                  component={OneHistoryPayment}
+                />
+                <Route
+                  path="/full-data-transaction/:id"
+                  exact
+                  component={OneHistoryTransaction}
+                />
+                <Route path="/add-money" exact component={AddMoney} />
+                <Route path="/admin-dashboard" exact component={Dashboard} />
+                <Route path="/settings" exact component={Settings} />
+                <Route path="/about-us" exact component={AboutUs} />
+                <Route path="*" exact component={NotFoundPage} />
+              </Switch>
+            </div> : 
+        <div>
+          <Switch>
             <Route path="/home" exact component={Home} />
             <Route path="/card" exact component={ViewCard} />
             <Route path="/history-balance" exact component={HistoryBalance} />
@@ -75,6 +105,7 @@ function App() {
             <Route path="/customer-service" exact component={Contact} />
             <Route path="/payment" exact component={Payment} />
             <Route path="/deposit-money" exact component={DepositMoney} />
+
             <Route
               path="/full-data-payment/:id"
               exact
@@ -85,17 +116,12 @@ function App() {
               exact
               component={OneHistoryTransaction}
             />
-          </div>
-        )}
-        {
-              console.log(isAdmin,"isAdmin")
-            }
-        {isAdmin && (
-          <div>
-            <Route path="/add-money" exact component={AddMoney} />
-            <Route path="/admin-dashboard" exact component={Dashboard} />
-          </div>
-        )}
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="*" exact component={NotFoundPage} />
+          </Switch>
+        </div>
+      :
+      <Switch>
         <Route path="/" exact />
         <Route path="/about-us" exact component={AboutUs} />
         <Route path="/login" exact component={Login} />
@@ -103,6 +129,8 @@ function App() {
         {/* <Route path="/update-data" exact component={UpdateData} /> */}
         <Route path="*" exact component={NotFoundPage} />
       </Switch>
+}
+        
       <Footer />
     </div>
   );

@@ -22,7 +22,8 @@ export default function ViewCard() {
       for(let i=0 ; i<10 ; i++){
         expireDate.push(fullExpireDate[i])
       }
-      setUserExpireDate(expireDate.join(""))
+      setUserExpireDate(response.data.card[0].expireDate.substr(0,10))
+      console.log(response.data.card[0].expireDate.substr(0,10));
       // console.log(expireDate.join(""),"expireDate");
       
       setUserData(response.data)

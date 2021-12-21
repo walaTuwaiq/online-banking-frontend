@@ -52,7 +52,7 @@ export default function Home() {
           {showToggle ? (
             <div className="balance-container">
               <div className="balance">
-                <h4>Your Balance: {userData.userCards[0].balance} SR</h4>
+                <h4>Your Balance: {userData.userCards[0].balance.toFixed(2)} SR</h4>
               </div>
               <div className="icon">
                 <img
