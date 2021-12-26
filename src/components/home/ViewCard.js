@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import "../styles/ViewCard.css";
+// import "../styles/ViewCard.css";
+import "../../styles/ViewCard.css"
 import { useSelector } from "react-redux";
 
 export default function ViewCard() {
@@ -22,9 +23,8 @@ export default function ViewCard() {
       for(let i=0 ; i<10 ; i++){
         expireDate.push(fullExpireDate[i])
       }
-      setUserExpireDate(response.data.card[0].expireDate.substr(0,10))
-      console.log(response.data.card[0].expireDate.substr(0,10));
-      // console.log(expireDate.join(""),"expireDate");
+      setUserExpireDate(response.data.card[0].expiredDate.substr(0,10))
+      // console.log(response.data.card[0].expiredDate.substr(0,10),"date date");
       
       setUserData(response.data)
     };

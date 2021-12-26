@@ -2,7 +2,8 @@ import axios from 'axios';
 import React,{useState, useEffect} from 'react'
 import { useSelector } from "react-redux";
 import Receipt from './Receipt';
-import "../styles/TransferMoney.css"
+// import "../styles/TransferMoney.css"
+import "../../styles/TransferMoney.css"
 
 export default function TransferMoney() {
     const [toInput, setToInput] = useState("")

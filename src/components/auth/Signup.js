@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import "../styles/Signup.css"
+// import "../styles/Signup.css"
+import "../../styles/Signup.css"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 

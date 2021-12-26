@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Home.css";
-import copyIcone from "../media/copy-icon.png";
-import hideIcon from "../media/hide.png";
-import showIcon from "../media/show.png";
+// import "../styles/Home.css";
+import "../../styles/Home.css"
+// import copyIcone from "../media/copy-icon.png";
+import copyIcone from "../../media/copy-icon.png"
+// import hideIcon from "../media/hide.png";
+import hideIcon from "../../media/hide.png"
+// import showIcon from "../media/show.png";
+import showIcon from "../../media/show.png"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";

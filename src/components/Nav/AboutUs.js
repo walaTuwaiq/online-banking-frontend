@@ -1,8 +1,12 @@
 import React from 'react'
-import "../styles/About.css"
-import Online from "../media/oo.png"
-import bank from "../media/1.png"
-import bank2 from "../media/18503.png"
+// import "../styles/About.css"
+import "../../styles/About.css"
+// import Online from "../media/oo.png"
+import Online from "../../media/oo.png"
+// import bank from "../media/1.png"
+// import bank2 from "../media/18503.png"
+import bank2 from "../../media/18503.png"
+import bank from "../../media/1.png"
 
 export default function AboutUs() {
     return (

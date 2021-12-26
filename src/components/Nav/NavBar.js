@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/NavBar.css";
+// import "../styles/NavBar.css";
+import "../../styles/NavBar.css"
 import { useSelector, useDispatch } from "react-redux";
-import { setToken } from "../reducers/token";
+import { setToken } from "../../reducers/token";
 
 export default function NavBar() {
   const token = useSelector((state) => state.token.token);
@@ -21,7 +22,7 @@ export default function NavBar() {
             <li className="navbar-item">LOGO</li>
           </Link>
         )}
-        {token ? (
+        {token ? isAdmin? "" : (
           <Link to="/home" className="navbar-link">
             <li className="navbar-item">Home</li>
           </Link>
@@ -34,8 +35,8 @@ export default function NavBar() {
         </Link>
 
         {isAdmin && (
-          <Link to="/admin-dashboard" className="navbar-link">
-            <li className="navbar-item">Dashboard</li>
+          <Link to="/admin-page" className="navbar-link">
+            <li className="navbar-item">Admin Page</li>
           </Link>
         )}
 

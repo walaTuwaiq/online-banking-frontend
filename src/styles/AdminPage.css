@@ -1,0 +1,32 @@
+.admin-container{
+    display: flex;
+}
+
+.sidebar-admin{
+    height: 100vh;
+    width: 15%;
+    border: 1px solid black;
+}
+
+.sidebar-admin p{
+    height: 40px;
+    display: flex;
+    padding-left: 2%;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 128, 0, 0.308);
+    transition: 0.3s;
+}
+
+.active , .link-sidebar:hover{
+    background-color: rgba(0, 128, 0, 0.432);
+    transition: 0.3s;
+    color: white;
+    cursor: pointer;
+}
+
+.right-side-admin{
+    margin-left: 1.5%;
+    margin-top: 0.5%;
+    width: 80%;
+}
