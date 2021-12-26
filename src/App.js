@@ -24,6 +24,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 // import Settings from "./components/AdminSettings/Settings";
 import AdminPage from "./components/AdminSettings/AdminPage";
+import Authorization from "./components/home/Authorization";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -41,14 +42,14 @@ function App() {
       );
     }
     try {
-      console.log(token, "token");
+      // console.log(token, "token");
       const response = await axios.get("http://localhost:5000/login", {
         headers: {
           authorization: `Bearer ${token}`,
         },
       });
 
-      console.log(response.data, "response");
+      // console.log(response.data, "response");
     } catch (error) {
       if (token) {
         dispatch(setToken("", "", ""));
@@ -90,6 +91,7 @@ function App() {
             <Route path="/update-data" exact component={UpdateData} />
             <Route path="/customer-service" exact component={Contact} />
             <Route path="/payment" exact component={Payment} />
+            <Route path="/authorization" exact component={Authorization} />
             <Route path="/deposit-money" exact component={DepositMoney} />
 
             <Route

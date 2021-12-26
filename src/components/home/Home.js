@@ -135,13 +135,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="content-item">
-          <Link className="content-links" to="/customer-service">
-            Customer Service
+          <Link className="content-links" to="/payment">
+            Online Payment
           </Link>
         </div>
         <div className="content-item">
-          <Link className="content-links" to="/payment">
-            Online Payment
+          <Link className="content-links" to="/authorization">
+            Authorization
+          </Link>
+        </div>
+        <div className="content-item">
+          <Link className="content-links" to="/customer-service">
+            Customer Service
           </Link>
         </div>
         {isAdmin &&

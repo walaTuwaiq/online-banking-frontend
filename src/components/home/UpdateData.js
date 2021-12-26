@@ -7,8 +7,8 @@ export default function UpdateData() {
   const [userData, setUserData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [userInput, setUserInput] = useState("");
-  const [userName, setUserName] = useState("")
-  const [errorMessage, setErrorMessage] = useState("")
+  const [userName, setUserName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const token = useSelector((state) => state.token.token);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function UpdateData() {
       });
 
       setUserData(response.data);
-      setUserName(response.data.user.userName)
+      setUserName(response.data.user.userName);
     };
 
     if (token) {
@@ -32,33 +32,36 @@ export default function UpdateData() {
     setToggle(!toggle);
   };
 
-  const updateData = async (e) => {
-    if(userInput !== ""){
+  const updateData = async () => {
+    if (userInput !== "") {
       const response = await axios.put(
-            "http://localhost:5000/update-data",
-            {
-              userName: userInput,
-            },
-            {
-              headers: {
-                authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          console.log(response.data,"response");
-          
-          if (response.status === 201) {
-            //it's mean somthing about click button and refresh browser!
-            // e.preventDefault();
-            
-            console.log(response.data);
-            //   changeToggle();
-            setUserData(response.data);
-            setErrorMessage("")
-          }
-        } else{
-        setErrorMessage("Please enter new user name!")
+        "http://localhost:5000/update-data",
+        {
+          userName: userInput,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log(response, "response");
+
+      if (response.status === 200) {
+        //it's mean somthing about click button and refresh browser!
+        // e.preventDefault();
+
+        // console.log(response.data);
+        //   changeToggle();
+        setUserName(response.data.user.userName)
+        setUserData(response.data);
+        setToggle(!toggle)
+        // setToggle(true);
+        setErrorMessage("");
       }
+    } else {
+      setErrorMessage("Please enter new user name!");
+    }
   };
 
   const userNameInput = (e) => {
@@ -67,8 +70,8 @@ export default function UpdateData() {
 
   return (
     <div>
-      {userData.user ? console.log(userData) : console.log(userData.user)}
-      
+      {/* {userData.user ? console.log(userData) : console.log(userData.user)} */}
+
       {userData.user ? (
         toggle ? (
           <div>
@@ -78,11 +81,9 @@ export default function UpdateData() {
               onChange={userNameInput}
             />
             <button
-              onClick={(e) => {
+              onClick={() => {
                 //It's work but not working like i want, must refresh browser to change user
-                setToggle(!toggle)
-                updateData(e);
-
+                updateData();
               }}
             >
               Save Changes
@@ -109,14 +110,14 @@ export default function UpdateData() {
         ""
       )}
 
-      {console.log(userData.userCards)}
+      {/* {console.log(userData.userCards)} */}
 
       {userData.userCards
         ? userData.userCards.map((elem, index) => {
             return (
               <div key={index}>
-                <p>balance: {elem.balance}</p>
-                <p>ibanNumber: {elem.ibanNumber}</p>
+                <p>balance: {elem.balance}SR</p>
+                <p>ibanNumber: SA{elem.ibanNumber}</p>
               </div>
             );
           })

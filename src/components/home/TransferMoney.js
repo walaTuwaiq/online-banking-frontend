@@ -80,11 +80,11 @@ export default function TransferMoney() {
     return (
         <div>
             <div>
-            {console.log(ibanCards,"ibanCards")}
+            {/* {console.log(ibanCards,"ibanCards")}
             {console.log(toInput,"toInput")}
             {console.log(amountInput,"amountInput")}
             {console.log(ibanNumber,"ibanNumber")}
-            {console.log(resultSearch,"resultSearch")}
+            {console.log(resultSearch,"resultSearch")} */}
 
 
             {
