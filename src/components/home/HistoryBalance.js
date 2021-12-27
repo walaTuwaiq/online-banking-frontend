@@ -13,7 +13,7 @@ export default function HistoryBalance() {
 
   useEffect(() => {
     const getHistoryData = async () => {
-      const response = await axios.get("http://localhost:5000/history", {
+      const response = await axios.get("/history", {
         headers: {
           authorization: `Bearer ${token}`,
         },

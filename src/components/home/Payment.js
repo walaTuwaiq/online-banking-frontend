@@ -16,7 +16,7 @@ export default function Payment() {
 
     // useEffect(() => {
     //     const getIbans = async()=>{
-    //         const response = await axios.get("http://localhost:5000/iban-cards")
+    //         const response = await axios.get("/iban-cards")
 
     //         setIbanCards(response.data)
 
@@ -34,7 +34,7 @@ export default function Payment() {
     }
 
     const submitTransaction= async()=>{
-        const response = await axios.post("http://localhost:5000/payment",{
+        const response = await axios.post("/payment",{
             to: toInput,
             amount: Number(amountInput),
         },{

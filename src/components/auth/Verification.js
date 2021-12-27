@@ -28,13 +28,13 @@ export default function Verification(props) {
 
     const checkCode = async()=>{
         try {
-            const response = await axios.post("http://localhost:5000/check-msg",{
+            const response = await axios.post("/check-msg",{
                 email,
                 code
             })
         console.log(response.data,"response");
         if(response.status == 200){
-            const createAccount = await axios.post("http://localhost:5000/signup", {
+            const createAccount = await axios.post("/signup", {
                 email,
                 userName,
                 fullName,

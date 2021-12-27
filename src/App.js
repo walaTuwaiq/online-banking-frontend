@@ -44,7 +44,7 @@ function App() {
     }
     try {
       // console.log(token, "token");
-      const response = await axios.get("http://localhost:5000/login", {
+      const response = await axios.get("/login", {
         headers: {
           authorization: `Bearer ${token}`,
         },

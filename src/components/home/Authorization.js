@@ -20,7 +20,7 @@ export default function Authorization() {
 
     useEffect(() => {
         const getIbans = async()=>{
-            const response = await axios.get("http://localhost:5000/iban-cards")
+            const response = await axios.get("/iban-cards")
 
             setIbanCards(response.data)
             // console.log(response.data,"get");
@@ -28,7 +28,7 @@ export default function Authorization() {
         }
 
         const getAuth = async()=>{
-            const response = await axios.get("http://localhost:5000/authorizations-user",{
+            const response = await axios.get("/authorizations-user",{
                 headers: {
                     authorization: `Bearer ${token}`,
                   },
@@ -88,7 +88,7 @@ export default function Authorization() {
 
     const saveData = async()=>{
         if(check){
-            const response = await axios.post("http://localhost:5000/authorizations",{
+            const response = await axios.post("/authorizations",{
                 to:idToIban,
                 highestAmount: amount
             },{

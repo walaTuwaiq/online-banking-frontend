@@ -10,7 +10,7 @@ export default function Cards() {
   useEffect(() => {
     const getCards = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/cards", {
+            const response = await axios.get("/cards", {
               headers: {
                 authorization: `Bearer ${token}`,
               },

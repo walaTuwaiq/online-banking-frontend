@@ -21,7 +21,7 @@ export default function Dashboard() {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(
-        "http://localhost:5000/transactions-in-week"
+        "/transactions-in-week"
       );
 
       setTransactios(response.data);

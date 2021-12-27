@@ -21,7 +21,7 @@ export default function AddMoney() {
 
     const addMoney= async()=>{
         try {
-            const response = await axios.post(`http://localhost:5000/add-balance`,{
+            const response = await axios.post(`/add-balance`,{
                 id,
                 newBalance: Number(amount)
             },{

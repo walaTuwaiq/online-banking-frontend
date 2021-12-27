@@ -68,7 +68,7 @@ export default function Signup() {
     ) {
       if (check && nationalId.length === 10) {
         try {
-        const response = await axios.post("http://localhost:5000/msg",{
+        const response = await axios.post("/msg",{
             email
         })
         console.log(response.data,"response");

@@ -27,7 +27,7 @@ export default function Login() {
   const submitDate = async () => {
     if (password !== "" && email !== "") {
       try {
-        const response = await axios.post("http://localhost:5000/login", {
+        const response = await axios.post("/login", {
           email,
           password,
         });

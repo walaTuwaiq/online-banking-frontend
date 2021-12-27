@@ -11,7 +11,7 @@ export default function Users() {
 
     useEffect(() => {
         const getData= async()=>{
-            const response = await axios.get("http://localhost:5000/users",{
+            const response = await axios.get("/users",{
                 headers: {
                     authorization: `Bearer ${token}`,
                   },
@@ -30,7 +30,7 @@ export default function Users() {
         try {
             // console.log(id,"id");
             
-            const response = await axios.delete(`http://localhost:5000/remove-user/${id}`,{
+            const response = await axios.delete(`/remove-user/${id}`,{
                 headers: {
                     authorization: `Bearer ${token}`,
                   },

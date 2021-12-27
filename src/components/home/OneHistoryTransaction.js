@@ -11,7 +11,7 @@ const [historyUser, setHistoryUser] = useState([]);
   useEffect(() => {
     const getHistoryData = async () => {
       const response = await axios.get(
-        `http://localhost:5000/full-data-transaction/${id}`,
+        `/full-data-transaction/${id}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

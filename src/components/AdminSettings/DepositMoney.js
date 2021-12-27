@@ -14,7 +14,7 @@
 //     }
 
 //     const addBalance= async()=>{
-//         const response = await axios.post("http://localhost:5000/add-balance",{
+//         const response = await axios.post("/add-balance",{
 //             newBalance: Number(inputAmount)
 //         },{
 //             headers: {
