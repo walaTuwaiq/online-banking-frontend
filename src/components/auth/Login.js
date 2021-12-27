@@ -11,13 +11,13 @@ import {setToken} from "../../reducers/token"
 
 export default function Login() {
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
   const history = useHistory();
   const dispatch = useDispatch()
 
-  const saveUserName = (e) => {
-    setUserName(e.target.value);
+  const saveEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const savePassword = (e) => {
@@ -25,10 +25,10 @@ export default function Login() {
   };
 
   const submitDate = async () => {
-    if (password !== "" && userName !== "") {
+    if (password !== "" && email !== "") {
       try {
         const response = await axios.post("http://localhost:5000/login", {
-          userName,
+          email,
           password,
         });
         console.log(response.data, "login");
@@ -53,12 +53,12 @@ export default function Login() {
   return (
     <div>
       <div className="login-form">
-        <label htmlFor="">user name:</label>
+        <label htmlFor="">Email:</label>
         <input
           className="signup-input"
           type="text"
-          placeholder="user name"
-          onChange={saveUserName}
+          placeholder="email"
+          onChange={saveEmail}
         />
 
         <label htmlFor="">password:</label>
