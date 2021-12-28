@@ -76,6 +76,11 @@ export default function Login() {
         >
           Log in
         </button>
+        <p>
+          <Link to="/forget-pass">
+            Froget Password?
+          </Link>
+        </p>
 
         <p className="error-message">
           {errorMessage+" "}

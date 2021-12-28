@@ -26,6 +26,7 @@ import { useHistory } from "react-router-dom";
 import AdminPage from "./components/AdminSettings/AdminPage";
 import Authorization from "./components/home/Authorization";
 import Verification from "./components/auth/Verification";
+import ResetPass from "./components/auth/ResetPass";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -114,6 +115,7 @@ function App() {
         <Route path="/" exact />
         <Route path="/about-us" exact component={AboutUs} />
         <Route path="/login" exact component={Login} />
+        <Route path="/forget-pass" exact component={ResetPass} />
         <Route path="/signup" exact component={Signup} />
         {/* <Route path="/verification-number" exact component={Verification} /> */}
         {/* <Route path="/update-data" exact component={UpdateData} /> */}
