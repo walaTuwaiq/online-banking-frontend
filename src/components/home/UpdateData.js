@@ -78,7 +78,7 @@ export default function UpdateData() {
             <input
               type="text"
               placeholder="user name"
-              onChange={userNameInput}
+              onChange={(e)=>{setUserInput(e.target.value)}}
             />
             <button
               onClick={() => {

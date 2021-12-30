@@ -59,8 +59,8 @@ export default function Payment() {
                     <h3>Current date is {date}</h3>
         
                     {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}
-                    <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
-                    <label>To: </label> <input onChange={saveToInput} type="number" placeholder='to'/>
+                    <label>The amount: </label> <input onChange={(e)=>{setAmountInput(e.target.value)}} type="number" placeholder='amount'/>
+                    <label>To: </label> <input onChange={(e)=>{setToInput(e.target.value)}} type="number" placeholder='to'/>
                     <button onClick={()=>{submitTransaction()}}>Payment</button>
                     </div>
             }

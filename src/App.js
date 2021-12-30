@@ -25,8 +25,12 @@ import { useHistory } from "react-router-dom";
 // import Settings from "./components/AdminSettings/Settings";
 import AdminPage from "./components/AdminSettings/AdminPage";
 import Authorization from "./components/home/Authorization";
-import Verification from "./components/auth/Verification";
+// import Verification from "./components/auth/Verification";
 import ResetPass from "./components/auth/ResetPass";
+
+// import io from 'socket.io-client'
+
+// const socket = io("http://localhost:5000")
 
 function App() {
   let token = useSelector((state) => state.token.token);

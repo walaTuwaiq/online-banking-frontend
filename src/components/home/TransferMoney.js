@@ -93,7 +93,7 @@ export default function TransferMoney() {
                  <div>
                     
                     <h3>Current date is {date}</h3>
-                    <input type="text" onChange={saveSearch}/>
+                    <input type="text" onChange={(e)=>{setIbanNumber(e.target.value)}}/>
                     <button onClick={()=>{findIbanBySearch()}}>Search</button>
                     
                     {
@@ -110,7 +110,7 @@ export default function TransferMoney() {
                     {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}
                     {
                         toggleToTransfer && <div className='amount-div'>
-                            <label>The amount: </label> <input onChange={saveAmountInput} type="number" placeholder='amount'/>
+                            <label>The amount: </label> <input onChange={(e)=>{setAmountInput(e.target.value)}} type="number" placeholder='amount'/>
                             <button onClick={()=>{submitTransaction()}}>Transfer</button>
                         </div>
                     }

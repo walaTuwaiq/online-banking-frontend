@@ -89,9 +89,9 @@ export default function ResetPass() {
             {
                 passToggle? 
                 <div>
-                    <input type="password" value={firstPass} placeholder='Enter Password' onChange={saveFirstPass} />
+                    <input type="password" value={firstPass} placeholder='Enter Password' onChange={(e)=>{setFirstPass(e.target.value)}} />
                     {firstPass}firstPass
-                    <input type="password" value={secondPass} placeholder='Repeat Password' onChange={saveSecondPass} />
+                    <input type="password" value={secondPass} placeholder='Repeat Password' onChange={(e)=>{setSecondPass(e.target.value)}} />
                     {secondPass}secondPass
                     <button onClick={()=>{resetPass()}}>RESET</button>
                     {errorMessage}
@@ -99,12 +99,12 @@ export default function ResetPass() {
                 : 
                 <div>
                 <label>Email: </label>
-                <input onChange={saveEmail} type="text" placeholder='Email' />
+                <input onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder='Email' />
                 <button onClick={()=>{checkEmail()}}>Send Code To Email</button>
                 {
                     toggle && <div>
                     <label>Check Email And Enter Code: </label>
-                    <input onChange={saveCode} type="text" placeholder='CODE' />
+                    <input onChange={(e)=>{setCode(e.target.value)}} type="text" placeholder='CODE' />
                     <button onClick={()=>{checkCode()}}>RESET PASSWORD</button>
                 </div> 
                 }

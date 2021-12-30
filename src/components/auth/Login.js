@@ -58,7 +58,7 @@ export default function Login() {
           className="signup-input"
           type="text"
           placeholder="email"
-          onChange={saveEmail}
+          onChange={(e)=>{setEmail(e.target.value)}}
         />
 
         <label htmlFor="">password:</label>
@@ -66,7 +66,7 @@ export default function Login() {
           className="signup-input"
           type="password"
           placeholder="password"
-          onChange={savePassword}
+          onChange={(e)=>{setPassword(e.target.value)}}
         />
 
         <button

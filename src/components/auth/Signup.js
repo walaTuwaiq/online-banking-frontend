@@ -105,7 +105,7 @@ export default function Signup() {
             className="signup-input"
             type="text"
             placeholder="email"
-            onChange={saveEmail}
+            onChange={(e)=>{setEmail(e.target.value)}}
           />
 
           <label htmlFor="">user name:</label>
@@ -113,7 +113,7 @@ export default function Signup() {
             className="signup-input"
             type="text"
             placeholder="user name"
-            onChange={saveUserName}
+            onChange={(e)=>{setUserName(e.target.value)}}
           />
 
           <label htmlFor="">first name:</label>
@@ -121,7 +121,7 @@ export default function Signup() {
             className="signup-input"
             type="text"
             placeholder="first name"
-            onChange={saveFirstName}
+            onChange={(e)=>{setFirstName(e.target.value)}}
           />
 
           <label htmlFor="">second name:</label>
@@ -129,7 +129,7 @@ export default function Signup() {
             className="signup-input"
             type="text"
             placeholder="second name"
-            onChange={saveSecondName}
+            onChange={(e)=>{setSecondName(e.target.value)}}
           />
 
           <label htmlFor="">password:</label>
@@ -137,22 +137,22 @@ export default function Signup() {
             className="signup-input"
             type="password"
             placeholder="password"
-            onChange={savePassword}
+            onChange={(e)=>{setPassword(e.target.value)}}
           />
 
           <label htmlFor="">date of birth:</label>
-          <input className="signup-input" type="date" onChange={saveDate} />
+          <input className="signup-input" type="date" onChange={(e)=>{setDate(e.target.value)}} />
 
           <label htmlFor="">national id:</label>
           <input
             className="signup-input"
             type="number"
             placeholder="national id"
-            onChange={saveNationalId}
+            onChange={(e)=>{setNationalId(e.target.value)}}
           />
 
           <label htmlFor="">nationality:</label>
-          <select onChange={saveNationality} name="nationality">
+          <select onChange={(e)=>{setNationality(e.target.value)}} name="nationality">
             <option value="">-- select one --</option>
             <option value="afghan">Afghan</option>
             <option value="american">American</option>
@@ -193,7 +193,7 @@ export default function Signup() {
             <input
               className="checkbox-input"
               type="checkbox"
-              onChange={saveCheck}
+              onChange={(e)=>{setCheck(e.target.checked)}}
             />
             I Agree to all privacy policy
           </div>

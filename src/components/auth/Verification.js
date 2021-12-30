@@ -55,7 +55,7 @@ export default function Verification(props) {
     return (
         <div>
             <label>Please check your Email and Enter your code:</label>
-            <input onChange={insertCode} type="text" placeholder='Enter code' />
+            <input onChange={(e)=>{setCode(e.target.value)}} type="text" placeholder='Enter code' />
             <button onClick={()=>{checkCode()}}>Verification</button>
             {
                 errorMessage

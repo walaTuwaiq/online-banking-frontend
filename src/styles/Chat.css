@@ -1,0 +1,33 @@
+.body-chat{
+    height: 300px;
+    border: 1px solid black;
+    /* width: 90%; */
+}
+
+.container-chat{
+    margin: auto;
+    width: 50%;
+    border: 1px solid blue;
+}
+
+.container-chat input{
+    width: 77%;
+}
+
+.container-chat button{
+    width: 20%;
+}
+
+#you{
+    border: 1px solid red;
+}
+
+#other{
+    border: 1px solid green;
+}
+
+.scroll-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}

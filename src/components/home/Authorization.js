@@ -113,7 +113,7 @@ export default function Authorization() {
                 <p>
                     Highest Amount: {amount}SR
                 </p>
-                <input className='checkbox-input' type="checkbox" onChange={saveCheck}/> Are You Sure?
+                <input className='checkbox-input' type="checkbox" onChange={(e)=>{setCheck(e.target.checked)}}/> Are You Sure?
                 <button onClick={()=>{saveData()}}>SAVE</button>
                 <p>
                     {errorMessage}
@@ -121,13 +121,13 @@ export default function Authorization() {
             </div>
              : 
             <div>
-                <label>Enter IBAN To Authorization: </label> <input onChange={saveIbanInput} type="text" placeholder='Iban Number' />
+                <label>Enter IBAN To Authorization: </label> <input onChange={(e)=>{setIbanInput(e.target.value)}} type="text" placeholder='Iban Number' />
                 <button onClick={()=>{findIbanBySearch()}}>Search</button>
                 {resultSearch && <p onClick={()=>{saveIdToIban(resultSearch._id)}}>{resultSearch.ibanNumber}</p>}
                 {
                     ibanToggle && 
                     <div>
-                        <label>Enter Highest Amount: </label> <input onChange={saveAmountInput} type="text" placeholder='Highest Amount' />
+                        <label>Enter Highest Amount: </label> <input onChange={(e)=>{setAmount(e.target.value)}} type="text" placeholder='Highest Amount' />
                         <button onClick={()=>{saveInputs()}}>Done</button>
                     </div>
                 }
