@@ -27,6 +27,7 @@ import AdminPage from "./components/AdminSettings/AdminPage";
 import Authorization from "./components/home/Authorization";
 // import Verification from "./components/auth/Verification";
 import ResetPass from "./components/auth/ResetPass";
+import Chat from "./components/AdminSettings/Chat";
 
 // import io from 'socket.io-client'
 
@@ -35,6 +36,7 @@ import ResetPass from "./components/auth/ResetPass";
 function App() {
   let token = useSelector((state) => state.token.token);
   const isAdmin = useSelector((state) => state.token.user_admin);
+  const idUser = useSelector((state) => state.token.user_id);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -43,7 +45,9 @@ function App() {
       dispatch(
         setToken(
           JSON.parse(localStorage.getItem("token")),
-          JSON.parse(localStorage.getItem("admin"))
+          JSON.parse(localStorage.getItem("admin")),
+          JSON.parse(localStorage.getItem("user")),
+          JSON.parse(localStorage.getItem("userName")),
         )
       );
     }
@@ -61,6 +65,9 @@ function App() {
         dispatch(setToken("", "", ""));
         localStorage.setItem("token", "");
         localStorage.setItem("admin", "");
+        localStorage.setItem("user", "");
+        localStorage.setItem("userName", "");
+        JSON.parse(localStorage.getItem("user",""))
         history.push("/");
         alert("Log in again");
       }
@@ -80,9 +87,8 @@ function App() {
                 {/* <Route path="/add-money" exact component={AddMoney} /> */}
                 {/* <Route path="/admin-dashboard" exact component={Dashboard} /> */}
                 <Route path="/admin-page" exact component={AdminPage} />
-
+                <Route path="/customer-service/:id" exact component={Chat} />
                 {/* <Route path="/settings" exact component={Settings} /> */}
-
                 <Route path="/about-us" exact component={AboutUs} />
                 <Route path="*" exact component={NotFoundPage} />
               </Switch>

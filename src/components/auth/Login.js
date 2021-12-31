@@ -31,11 +31,13 @@ export default function Login() {
           email,
           password,
         });
-        console.log(response.data, "login");
+        // console.log(response.data, "login");
         if(response.status === 201){
-          dispatch(setToken(response.data.token,response.data.payload.isAdmin))
+          dispatch(setToken(response.data.token,response.data.payload.isAdmin,response.data.payload.userId,response.data.payload.userName))
           localStorage.setItem("token", JSON.stringify(response.data.token))
           localStorage.setItem("admin", JSON.stringify(response.data.payload.isAdmin))
+          localStorage.setItem("user", JSON.stringify(response.data.payload.userId))
+          localStorage.setItem("userName", JSON.stringify(response.data.payload.userName))
           // console.log(response.data,"data log in");
           history.push("/home");
         } else{

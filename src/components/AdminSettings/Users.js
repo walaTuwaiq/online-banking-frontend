@@ -1,12 +1,15 @@
 import axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import { useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 
 export default function Users() {
     const [users, setUsers] = useState([])
 
       const token = useSelector((state) => state.token.token);
+
+      const history =useHistory()
 
 
     useEffect(() => {
@@ -45,6 +48,10 @@ export default function Users() {
         }
     }
 
+    const openChatWithUser = async(id)=>{
+        history.push(`/customer-service/${id}`)
+    }
+
     return (
         <div>
             {
@@ -65,9 +72,13 @@ export default function Users() {
                         <p>
                             National ID: {elem.nationalId}
                         </p>
+                        <button onClick={()=>{openChatWithUser(elem._id)}}>
+                            Chat
+                        </button>
                         {
                             elem.isAdmin? <p>Admin: {elem.isAdmin}</p> : <button onClick={()=>{deleteUser(elem._id)}}>Delete User</button>
                         }
+
                         <hr />
                     </div>
                 })

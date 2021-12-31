@@ -31,3 +31,31 @@
     height: 100%;
     overflow-y: scroll;
 }
+
+.join-room{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2%;
+    border: 1px solid blue;
+    width: 40%;
+    margin: auto;
+}
+
+.join-room input{
+    margin: auto;
+    width: 200px;
+    text-align: center;
+}
+
+.join-room button{
+    margin: auto;
+    width: 208px;
+    border: 1px solid blue;
+    background-color: rgba(87, 87, 100, 0.397);
+}
+
+.join-room button:hover{
+    background-color: rgba(155, 155, 196, 0.329);
+    cursor: pointer;
+}
