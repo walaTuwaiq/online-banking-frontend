@@ -1,114 +1,154 @@
-.user-data-container{
-    padding: 1%;
-    border-radius: 1rem;
-    margin: 1%;
-    background-color: rgba(99, 0, 0, 0.10);
-    width: 60%;
+.user-data-container {
+  padding: 1%;
+  border-radius: 1rem;
+  margin: 1%;
+  background-color: #e3cca263;
+  width: 60%;
+  margin: auto;
+  margin-top: 2%;
+  color: #4f3909;
+}
+
+.user-data-container h4 {
+  display: inline;
+}
+
+.copy-icon {
+  width: 14px;
+  position: relative;
+  /* top: 5%; */
+  left: 30%;
+}
+
+.copy-icon:hover {
+  cursor: pointer;
+}
+
+.show-hide-icons {
+  width: 25px;
+  position: relative;
+  left: 80%;
+}
+
+.show-hide-icons:hover {
+  cursor: pointer;
+  /* background-color: rgba(255, 255, 255, 0.192); */
+  border-radius: 1rem;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 3%;
+  margin: auto;
+  width: 80%;
+  border-top: 1px solid rgba(99, 0, 0, 0.04);
+  margin-top: 5%;
+  padding: 1%;
+}
+
+.content-links {
+  text-decoration: none;
+  color: #4f3909;
+}
+
+.content-links:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.content-item {
+  width: 120px;
+  height: 50px;
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+  justify-content: center;
+  padding-top: 9%;
+  border-radius: 1rem;
+  background-color: #e3cca263;
+  border: 1px solid rgba(99, 0, 0, 0.05);
+}
+
+.content-item:hover {
+  transition: 0.5s;
+  background-color: #e3cca271;
+}
+
+.balance-container {
+  display: flex;
+}
+
+.balance {
+  width: 90%;
+}
+
+.icon {
+  width: 20%;
+}
+
+.iban-container {
+  display: flex;
+}
+
+.iban-container .iban-num {
+  width: 20%;
+}
+
+.iban-num h4 {
+  cursor: auto;
+}
+
+.iban-container .img {
+  width: 4%;
+}
+
+.iban-container .msg {
+  height: 13px;
+  position: relative;
+  right: 4%;
+  top: -15px;
+  /* left: -1.4%; */
+  /* top: 80%; */
+  /* bottom: 50%; */
+  background-color: #7065501f;
+  font-size: 11px;
+}
+
+.welcome-page{
+    display: flex;
+    border-top: 1px solid #c58d2d57;
+}
+
+.welcome-container{
+    width: 100%;
+    height: 90vh;
+    /* margin: auto; */
+    background-image: url("../media/bg3.png");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    /* background-size: cover; */
+    /* bg */
+}
+
+.welcome-text{
     margin: auto;
-}
-
-.user-data-container h4{
-    display: inline;
-}
-
-.copy-icon{
-    width: 14px;
     position: relative;
-    top: 1px;
-    left: 10px;
+    left: -290px;
+    font-size: 100px;
+    color: #c58d2d;
+    opacity: 70%;
+    font-family: 'Licorice', cursive;
 }
 
-.copy-icon:hover{
-    cursor: pointer;
+.welcome-text hr{
+    opacity: 40%;
 }
 
-.show-hide-icons{
-    width: 25px;
-    position: relative;
-    left: 80%;
-}
-
-.show-hide-icons:hover{
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.192);
-    border-radius: 1rem;
-}
-
-.content-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 3%;
+.welcome-text p{
     margin: auto;
-    width: 80%;
-    border-top: 1px solid rgba(99, 0, 0, 0.04);
-    margin-top: 5%;
-    padding: 1%;
-}
-
-.content-links{
-    text-decoration: none;
-    color: #630000;
-}
-
-.content-links:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.content-item{
-    width: 120px;
-    height: 50px;
-    margin: 1%;
-    padding: 1%;
     text-align: center;
-    justify-content: center;
-    padding-top: 9%;
-    border-radius: 1rem;
-    background-color: rgba(99, 0, 0, 0.02);
-    border: 1px solid rgba(99, 0, 0, 0.05) ;
-}
-
-.content-item:hover{
-    transition: 0.5s;
-    background-color: rgba(99, 0, 0, 0.10);
-}
-
-.balance-container{
-    display: flex;
-}
-
-.balance{
-    width: 90%;
-}
-
-.icon{
-    width: 20%;
-
-}
-
-.iban-container{
-    display: flex;
-}
-
-.iban-container .iban-num{
-    width: 20%;
-}
-
-.iban-num h4{
-    cursor: auto;
-}
-
-.iban-container .img{
-    width: 4%;
-}
-
-.iban-container .msg{
-    /* width: auto; */
-    /* border: 1px solid red; */
-    height: 13px;
-    position: relative;
-    left: -27px;
-    top: -16px;
-    background-color: rgba(255, 255, 255, 0.397);
-    font-size: 11px;
+    color: #856021;
+    font-size: 20px;
 }

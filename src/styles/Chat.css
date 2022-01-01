@@ -52,10 +52,10 @@
     margin: auto;
     width: 208px;
     border: 1px solid blue;
-    background-color: rgba(87, 87, 100, 0.397);
+    background-color: #74664d50;
 }
 
 .join-room button:hover{
-    background-color: rgba(155, 155, 196, 0.329);
+    background-color: #74664d1e;
     cursor: pointer;
 }

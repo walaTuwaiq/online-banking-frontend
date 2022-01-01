@@ -10,7 +10,7 @@ const socket = io.connect("http://localhost:5000");
 
 export default function Chat() {
   const [messagesListAdmin, setMessagesListAdmin] = useState([]);
-  const [messageListUser, setMessageListUser] = useState([])
+  const [messageListUser, setMessageListUser] = useState([]);
   const [message, setMessage] = useState("");
 
   const token = useSelector((state) => state.token.token);
@@ -32,7 +32,7 @@ export default function Chat() {
         // userId:user_id
       };
       socket.emit("send_message", messageData);
-      console.log(messageData,"messageData");
+      // console.log(messageData,"messageData");
       setMessagesListAdmin([...messagesListAdmin, messageData]);
       setMessage("");
 
@@ -41,8 +41,8 @@ export default function Chat() {
         {
           userId: user_id,
           message,
-          author:user_name,
-          to:id,
+          author: user_name,
+          to: id,
           time:
             new Date(Date.now()).getHours() +
             ":" +
@@ -59,7 +59,7 @@ export default function Chat() {
   };
 
   socket.on("receive_message", (data) => {
-    console.log(data,"data");
+    console.log(data, "data");
     setMessageListUser([...messageListUser, data]);
   });
 

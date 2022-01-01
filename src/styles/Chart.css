@@ -6,6 +6,7 @@
     /* font-size: 13px; */
     /* padding: 1px; */
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.096);
+    color: #4f3909;
 }
 
 .tooltip p{
@@ -13,7 +14,8 @@
 }
 
 .container-chart{
-    border: 1px solid black;
+    border: 1px solid #4f390933;
+    border-radius: 1rem;
     /* margin: auto; */
     padding: 1%;
 }

@@ -30,7 +30,7 @@ export default function Contact({id}) {
                 // userId:user_id
             }
             socket.emit("send_message",messageData)
-            console.log(messageData,"messageData");
+            // console.log(messageData,"messageData");
             setMessagesListUser([...messagesListUser,messageData])
             setMessage("")
 

@@ -8,6 +8,7 @@ import "../../styles/Login.css"
 import { useDispatch } from "react-redux";
 import {setToken} from "../../reducers/token"
 // import {  } from "react-redux";
+import logoBank from "../../media/logo-bank.png"
 
 export default function Login() {
   const [password, setPassword] = useState("");
@@ -55,9 +56,10 @@ export default function Login() {
   return (
     <div>
       <div className="login-form">
+        <img className="logo-login" src={logoBank}/>
         <label htmlFor="">Email:</label>
         <input
-          className="signup-input"
+          className="login-input"
           type="text"
           placeholder="email"
           onChange={(e)=>{setEmail(e.target.value)}}
@@ -65,7 +67,7 @@ export default function Login() {
 
         <label htmlFor="">password:</label>
         <input
-          className="signup-input"
+          className="login-input"
           type="password"
           placeholder="password"
           onChange={(e)=>{setPassword(e.target.value)}}
@@ -79,7 +81,7 @@ export default function Login() {
           Log in
         </button>
         <p>
-          <Link to="/forget-pass">
+          <Link className="forget-pass" to="/forget-pass">
             Froget Password?
           </Link>
         </p>

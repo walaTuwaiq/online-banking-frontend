@@ -72,6 +72,9 @@ export default function Users() {
                         <p>
                             National ID: {elem.nationalId}
                         </p>
+                        <p>
+                            Last Log In: {elem.lastLogIn}
+                        </p>
                         <button onClick={()=>{openChatWithUser(elem._id)}}>
                             Chat
                         </button>

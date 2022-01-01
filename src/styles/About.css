@@ -1,16 +1,17 @@
 .body-about-us{
-    background-color: #d8b6a47a;
+    /* background-color: #f3e4c9; */
     width: 100%;
     height: 100%;
 }
 
 .header{
-    background-image: url("../media/bank-header.png");
+    background-image: url("../media/bg1.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: auto;
-    width: 80%;
+    width: 100%;
     height: 65vh;
+    opacity: 40%;
     /* border: 1px solid black; */
 }
 
@@ -48,4 +49,51 @@
     font-size: 18px;
     /* direction: ltr; */
     text-align: left;
+}
+
+.google-map{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 300px; */
+}
+
+.google-map iframe{
+    border: 1px solid #e3cca2b4;
+    background-color: #e3cca263;    opacity: 60%;
+    transition: 1s;
+    /* transform: translateY(50%); */
+    /* transition: 1s ease-in; */
+}
+
+.google-map iframe:hover{
+    transition: 0.6s;
+    opacity: 95%;
+}
+
+.btn-google{
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #e3cca263;
+    border: 1px solid #e3cca2b4;
+    color: #4f3909c5;
+    font-weight: bold;
+    transition: 0.2s;
+    border-radius: 0.5rem;
+    margin-top: 2%;
+}
+
+.btn-google:hover{
+    cursor: pointer;
+    /* background-color: #e3cca2a2; */
+    /* color: #4f390977; */
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.hr-about{
+    width: 80%;
+    opacity: 30%;
 }

@@ -5,7 +5,7 @@
 .sidebar-admin{
     height: 100vh;
     width: 15%;
-    border: 1px solid black;
+    border: 1px solid #4f3909;
 }
 
 .sidebar-admin p{
@@ -14,19 +14,21 @@
     padding-left: 2%;
     justify-content: center;
     flex-direction: column;
-    background-color: rgba(0, 128, 0, 0.308);
+    background-color: #e3cca2a1;
     transition: 0.3s;
 }
 
 .active , .link-sidebar:hover{
-    background-color: rgba(0, 128, 0, 0.432);
+    background-color: #e3cca2dc;
     transition: 0.3s;
     color: white;
     cursor: pointer;
 }
 
 .right-side-admin{
-    margin-left: 1.5%;
+    /* margin-left: 1.5%; */
+    margin: auto;
     margin-top: 0.5%;
+    padding-left: 3%;
     width: 80%;
 }

@@ -43,7 +43,7 @@ export default function Cards() {
   }, [token]);
   return <div>
 
-        <h3>All Of The Moeny In Bank:</h3>
+        <h3>Bank Liquidity:</h3>
         <h4>{sumBalance}SR</h4>
 
         <hr />

@@ -5,6 +5,7 @@ import "../../styles/Signup.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Verification from "./Verification";
+import logoBank from "../../media/logo-bank.png";
 
 export default function Signup() {
   const [date, setDate] = useState("");
@@ -19,43 +20,7 @@ export default function Signup() {
   const [nationality, setNationality] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  const history = useHistory();
-
-  const saveEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const saveDate = (e) => {
-    setDate(e.target.value);
-  };
-
-  const saveUserName = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const saveFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const saveSecondName = (e) => {
-    setSecondName(e.target.value);
-  };
-
-  const savePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const saveNationalId = (e) => {
-    setNationalId(e.target.value);
-  };
-
-  const saveNationality = (e) => {
-    setNationality(e.target.value);
-  };
-
-  const saveCheck = (e) => {
-    setCheck(e.target.checked);
-  };
+  // const history = useHistory();
 
   const submitDate = async () => {
     if (
@@ -68,17 +33,17 @@ export default function Signup() {
     ) {
       if (check && nationalId.length === 10) {
         try {
-        const response = await axios.post("/msg",{
-            email
-        })
-        console.log(response.data,"response");
+          const response = await axios.post("/msg", {
+            email,
+          });
+          console.log(response.data, "response");
           if (response.status === 201) {
             setToggle(!toggle);
           } else {
             setErrorMessage(response.data);
           }
         } catch (error) {
-          console.log(error,"error");
+          console.log(error, "error");
         }
       } else {
         if (!check) {
@@ -96,63 +61,96 @@ export default function Signup() {
     <div>
       {toggle ? (
         <div>
-          <Verification email={email} userName={userName} fullName={`${firstName} ${secondName}`} password={password} dateOfBirth={date} nationalId={nationalId} nationality={nationality} />
+          <Verification
+            email={email}
+            userName={userName}
+            fullName={`${firstName} ${secondName}`}
+            password={password}
+            dateOfBirth={date}
+            nationalId={nationalId}
+            nationality={nationality}
+          />
         </div>
       ) : (
-        <div className="signup-form">
-          <label htmlFor="">Email:</label>
+        <div className="login-form">
+          <img className="logo-login" src={logoBank} />
+          <label>Email:</label>
           <input
-            className="signup-input"
+            className="login-input"
             type="text"
             placeholder="email"
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
 
-          <label htmlFor="">user name:</label>
+          <label>user name:</label>
           <input
-            className="signup-input"
+            className="login-input"
             type="text"
             placeholder="user name"
-            onChange={(e)=>{setUserName(e.target.value)}}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
           />
 
-          <label htmlFor="">first name:</label>
+          <label>first name:</label>
           <input
-            className="signup-input"
+            className="login-input"
             type="text"
             placeholder="first name"
-            onChange={(e)=>{setFirstName(e.target.value)}}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
           />
 
-          <label htmlFor="">second name:</label>
+          <label>second name:</label>
           <input
-            className="signup-input"
+            className="login-input"
             type="text"
             placeholder="second name"
-            onChange={(e)=>{setSecondName(e.target.value)}}
+            onChange={(e) => {
+              setSecondName(e.target.value);
+            }}
           />
 
-          <label htmlFor="">password:</label>
+          <label>password:</label>
           <input
-            className="signup-input"
+            className="login-input"
             type="password"
             placeholder="password"
-            onChange={(e)=>{setPassword(e.target.value)}}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
 
-          <label htmlFor="">date of birth:</label>
-          <input className="signup-input" type="date" onChange={(e)=>{setDate(e.target.value)}} />
-
-          <label htmlFor="">national id:</label>
+          <label>date of birth:</label>
           <input
-            className="signup-input"
-            type="number"
-            placeholder="national id"
-            onChange={(e)=>{setNationalId(e.target.value)}}
+            className="login-input date-of-birth"
+            type="date"
+            onChange={(e) => {
+              setDate(e.target.value);
+            }}
           />
 
-          <label htmlFor="">nationality:</label>
-          <select onChange={(e)=>{setNationality(e.target.value)}} name="nationality">
+          <label>national id:</label>
+          <input
+            className="login-input"
+            type="number"
+            placeholder="national ID"
+            onChange={(e) => {
+              setNationalId(e.target.value);
+            }}
+          />
+
+          <label>nationality:</label>
+          <select
+            className="select-nationality"
+            onChange={(e) => {
+              setNationality(e.target.value);
+            }}
+            name="nationality"
+          >
             <option value="">-- select one --</option>
             <option value="afghan">Afghan</option>
             <option value="american">American</option>
@@ -186,14 +184,12 @@ export default function Signup() {
             <option value="yemenite">Yemenite</option>
           </select>
 
-          {/* {nationality} */}
-          {/* Selected right option */}
-
           <div className="policy">
             <input
-              className="checkbox-input"
               type="checkbox"
-              onChange={(e)=>{setCheck(e.target.checked)}}
+              onChange={(e) => {
+                setCheck(e.target.checked);
+              }}
             />
             I Agree to all privacy policy
           </div>

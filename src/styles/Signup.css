@@ -1,79 +1,36 @@
-.signup-form{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    padding: 2%;
-    /* border:1px solid red; */
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-    box-shadow: 2px 2px 5px 2px rgb(99, 0, 0,0.5);
-    border-radius: 1rem;
+.policy {
+  display: flex;
+  margin: auto;
 }
 
-.signup-input{
-    width: 40%;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 1%;
-    color: rgb(99, 0, 0,0.8);
-    border: 1px solid rgb(99, 0, 0,0.5);
-    height: 17px;
+.policy input {
+  margin-right: 7px;
 }
 
-.signup-form label{
-    font-size: 20px;
+.error-message {
+  color: red;
 }
 
-.signup-form button{
-    width: 44%;
-    height: 30px;
-    margin: auto;
-    margin-top: 2%;
-    font-size: 17px;
-    font-weight: bold;
-    background-color: rgba(99, 0, 0, 0.20);
-    border: 1px solid rgba(99, 0, 0, 0.30);
-    border-radius: 0.5rem;
-    color: rgb(99, 0, 0,0.5);
-
+.error-message-link {
+  text-decoration: none;
+  color: rgb(17, 17, 99);
 }
 
-.signup-form button:hover{
-    background-color: rgba(99, 0, 0, 0.10);
-    cursor: pointer;
-    color: rgb(99, 0, 0,0.7);
+.error-message-link:hover {
+  text-decoration: underline;
 }
 
-.signup-form select{
-    width: 40%;
-    margin: auto;
-    margin-bottom: 3%;
+.select-nationality {
+  width: 41%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 2.5%;
 }
 
-.policy{
-    display: flex;
-    margin: auto;
-    /* border: 1px solid black; */
-    /* width: 40%; */
-    /* margin: auto; */
+.login-form select {
+  font-size: 15px;
 }
 
-/* .checkbox-input{
-    width: 40px;
-    border: 1px solid red;
-} */
-
-.error-message{
-    color: red;
-}
-
-.error-message-link{
-    text-decoration: none;
-    color: rgb(17, 17, 99);
-}
-
-.error-message-link:hover{
-    text-decoration: underline;
+.date-of-birth {
+  font-size: 15px;
 }

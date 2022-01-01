@@ -75,14 +75,14 @@ export default function AdminPage() {
         >
           Users
         </p>
-        <p
+        {/* <p
           className={usersActive ? "link-sidebar active" : "link-sidebar"}
           onClick={() => {
             changeToggle(5);
           }}
         >
           Chats
-        </p>
+        </p> */}
         {/* </div> */}
       </div>
 

@@ -56,12 +56,12 @@ export default function Dashboard() {
         <AreaChart data={transactios}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4}></stop>
-              <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05}></stop>
+              <stop offset="0%" stopColor="#4f3909" stopOpacity={0.4}></stop>
+              <stop offset="75%" stopColor="#4f3909" stopOpacity={0.05}></stop>
             </linearGradient>
           </defs>
 
-          <Area dataKey="amount" stroke="#2451B7" fill="url(#color)" />
+          <Area dataKey="amount" stroke="#4f3909" fill="url(#color)" />
 
           <XAxis
             dataKey="date"

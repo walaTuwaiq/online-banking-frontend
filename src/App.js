@@ -28,6 +28,7 @@ import Authorization from "./components/home/Authorization";
 // import Verification from "./components/auth/Verification";
 import ResetPass from "./components/auth/ResetPass";
 import Chat from "./components/AdminSettings/Chat";
+import WelcomePage from "./components/home/WelcomePage";
 
 // import io from 'socket.io-client'
 
@@ -81,7 +82,7 @@ function App() {
       <NavBar />
       {token? isAdmin? <div>
               <Switch>
-              <Route path="/home" exact />
+              <Route path="/home" exact component={WelcomePage} />
                 <Route path="/update-data" exact component={UpdateData} />
                 <Route path="/customer-service" exact component={Contact} />
                 {/* <Route path="/add-money" exact component={AddMoney} /> */}
@@ -122,7 +123,7 @@ function App() {
         </div>
       :
       <Switch>
-        <Route path="/" exact />
+        <Route path="/" exact component={WelcomePage} />
         <Route path="/about-us" exact component={AboutUs} />
         <Route path="/login" exact component={Login} />
         <Route path="/forget-pass" exact component={ResetPass} />
