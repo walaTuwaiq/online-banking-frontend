@@ -98,7 +98,6 @@ export default function AdminPage() {
         {toggle == 2 && <AddMoney />}
         {toggle == 3 && <Cards />}
         {toggle == 4 && <Users />}
-        {/* {toggle == 5 && <Contact />} */}
       </div>
     </div>
   );

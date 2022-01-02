@@ -9,8 +9,10 @@ import "../../styles/Chat.css";
 const socket = io.connect("http://localhost:5000");
 
 export default function Chat() {
-  const [messagesListAdmin, setMessagesListAdmin] = useState([]);
-  const [messageListUser, setMessageListUser] = useState([]);
+  // const [messagesListAdmin, setMessagesListAdmin] = useState([]);
+  // const [messageListUser, setMessageListUser] = useState([]);
+  const [allMessages, setAllMessages] = useState([]);
+  // const [allMessages, setAllMessages] = useState([]);
   const [message, setMessage] = useState("");
 
   const token = useSelector((state) => state.token.token);
@@ -20,6 +22,8 @@ export default function Chat() {
   const { id } = useParams();
 
   const sendMessage = async () => {
+    // const allMessages = [...messagesListAdmin,messageListUser]
+    //   console.log(allMessages,"allMessages");
     if (message !== "") {
       const messageData = {
         room: id,
@@ -29,20 +33,17 @@ export default function Chat() {
           new Date(Date.now()).getHours() +
           ":" +
           new Date(Date.now()).getMinutes(),
-        // userId:user_id
       };
       socket.emit("send_message", messageData);
-      // console.log(messageData,"messageData");
-      setMessagesListAdmin([...messagesListAdmin, messageData]);
+      setAllMessages([...allMessages, messageData]);
       setMessage("");
 
       const response = await axios.post(
         "/send-message-admin-chat",
         {
-          userId: user_id,
+          userId: id,
           message,
           author: user_name,
-          to: id,
           time:
             new Date(Date.now()).getHours() +
             ":" +
@@ -54,16 +55,17 @@ export default function Chat() {
           },
         }
       );
-      // console.log(response.data,"response");
     }
   };
 
   socket.on("receive_message", (data) => {
-    console.log(data, "data");
-    setMessageListUser([...messageListUser, data]);
+    const updateArr = [...allMessages];
+    updateArr.push(data);
+    setAllMessages(updateArr);
   });
 
   useEffect(() => {
+    socket.emit("join_room", id);
     const getMessages = async () => {
       const response = await axios.get(`/chat-messages-admin/${id}`, {
         headers: {
@@ -71,25 +73,57 @@ export default function Chat() {
         },
       });
       if (response.status == 200) {
-        setMessagesListAdmin(response.data.adminChats);
-        setMessageListUser(response.data.userChats);
-        // console.log(response.data,"responsee");
+        setAllMessages(response.data);
+        // setMessagesListAdmin(response.data.adminChats);
+        // setMessageListUser(response.data.userChats);
       }
     };
 
     if (token) {
       getMessages();
+      // const allMessages = [...messagesListAdmin, ...messageListUser];
+      // console.log(allMessages, "allMessages");
+
+      // const sortingMessages = allMessages.time.sort((a,b)=>{
+      //   return a-b
+      // })
+      // let sortingMessages = [];
+      // for (let i = 1; i < allMessages.length; i++) {
+      //   if (allMessages[i].time < allMessages[i - 1].time) {
+      //     sortingMessages.push(allMessages[i]);
+      //     console.log(sortingMessages[i], "sortingMessages");
+      //   } else {
+      //     sortingMessages.push(allMessages[i - 1]);
+      //     // console.log(sortingMessages[i], "sortingMessages");
+      //   }
+      // }
+      // console.log(sortingMessages, "sortingMessages");
     }
   }, [token]);
 
   return (
     <div className="container-chat">
       <div className="header-chat">
-        <p>LIVE CHAT:</p>
+        <h3>LIVE CHAT:</h3>
       </div>
       <div className="body-chat">
         <ScrollToBottom className="scroll-container">
-          {messageListUser &&
+          {allMessages &&
+            allMessages.map((elem, index) => {
+              return (
+                <div
+                  key={index}
+                  className="message-container"
+                  id={elem.author == user_name ? "you" : "other"}
+                >
+                  <p className="author-message">{elem.author}</p>
+                  <p className="text-message">{elem.message}</p>
+                  <p className="time-message">{elem.time}</p>
+                  {/* <hr /> */}
+                </div>
+              );
+            })}
+          {/* {messageListUser &&
             messageListUser.map((elem, index) => {
               return (
                 <div
@@ -116,7 +150,7 @@ export default function Chat() {
                   <div className="author-message">{elem.author}</div>
                 </div>
               );
-            })}
+            })} */}
         </ScrollToBottom>
       </div>
       <div className="footer-chat">
@@ -136,7 +170,7 @@ export default function Chat() {
             sendMessage();
           }}
         >
-          SEND
+          SEND &rarr;	
         </button>
       </div>
     </div>
