@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import Verification from "./Verification";
 import logoBank from "../../media/logo-bank.png";
 
+import { validEmail, validPassword } from "./Regex";
+// import { validEmail, validPassword } from './regex.js';
+
 export default function Signup() {
   const [date, setDate] = useState("");
   const [email, setEmail] = useState("");
@@ -20,9 +23,19 @@ export default function Signup() {
   const [nationality, setNationality] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  
   // const history = useHistory();
 
+  
   const submitDate = async () => {
+    if (!validEmail.test(email)) {
+      setErrorMessage("Your email is invalid");
+      return
+    }
+    if (!validPassword.test(password)) {
+      setErrorMessage("Your password is invalid");
+      return
+    }
     if (
       date !== "" &&
       firstName !== "" &&
@@ -123,6 +136,7 @@ export default function Signup() {
               setPassword(e.target.value);
             }}
           />
+          <span className="pass-msg"><span>&#9733;</span> Must includes numbers and characters</span>
 
           <label>date of birth:</label>
           <input

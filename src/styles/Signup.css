@@ -33,6 +33,18 @@
   font-size: 15px;
 }
 
+.pass-msg{
+  font-size: 13px;
+  position: relative;
+  top: -7px;
+  color: #58461f;
+  opacity: 60%;
+}
+.pass-msg span{
+  font-size: 17px;
+  /* top: -1px; */
+}
+
 @media only screen and (max-width: 1024px) {
   .date-of-birth {
     font-size: 18px;
