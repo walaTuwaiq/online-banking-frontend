@@ -77,6 +77,10 @@ export default function Contact() {
     return (
         <div className='container-chat'>
             <div className='header-chat'>
+                <h3>
+                    We are here in 24 / 7
+                </h3>
+                <br/>
                 <h3>LIVE CHAT:</h3>
             </div>
             <div className='body-chat'>

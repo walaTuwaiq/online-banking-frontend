@@ -25,12 +25,25 @@
   margin: auto;
   text-align: center;
   margin-bottom: 2.5%;
-}
-
-.login-form select {
   font-size: 15px;
+  border: 1px solid #58461f;
 }
 
 .date-of-birth {
   font-size: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .date-of-birth {
+    font-size: 18px;
+  }
+
+  .select-nationality {
+    font-size: 18px;
+    width: 51%;
+  }
+
+  .policy {
+    font-size: 17px;
+  }
 }

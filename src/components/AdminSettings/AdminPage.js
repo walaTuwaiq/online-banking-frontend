@@ -6,6 +6,7 @@ import Users from "./Users";
 import Cards from "./Cards";
 // import Chat from "../home/Chat";
 import Contact from "../home/Contact";
+import AllChats from "./AllChats";
 
 export default function AdminPage() {
   const [toggle, setToggle] = useState(1);
@@ -13,6 +14,7 @@ export default function AdminPage() {
   const [addMoneyActive, setAddMoneyActive] = useState(false);
   const [cardsActive, setCardsActive] = useState(false);
   const [usersActive, setUsersActive] = useState(false);
+  const [allChatsActive, setAllChatsActive] = useState(false)
 
   const changeToggle = (n) => {
     setToggle(n);
@@ -21,21 +23,31 @@ export default function AdminPage() {
       setAddMoneyActive(false);
       setCardsActive(false);
       setUsersActive(false);
+      setAllChatsActive(false)
     } else if (n == 2) {
       setDashActive(false);
       setAddMoneyActive(true);
       setCardsActive(false);
       setUsersActive(false);
+      setAllChatsActive(false)
     } else if (n == 3) {
       setDashActive(false);
       setAddMoneyActive(false);
       setCardsActive(true);
       setUsersActive(false);
-    } else {
+      setAllChatsActive(false)
+    } else if(n==4) {
       setDashActive(false);
       setAddMoneyActive(false);
       setCardsActive(false);
       setUsersActive(true);
+      setAllChatsActive(false)
+    } else{
+      setDashActive(false);
+      setAddMoneyActive(false);
+      setCardsActive(false);
+      setUsersActive(false);
+      setAllChatsActive(true)
     }
   };
 
@@ -75,6 +87,14 @@ export default function AdminPage() {
         >
           Users
         </p>
+        <p
+          className={allChatsActive ? "link-sidebar active" : "link-sidebar"}
+          onClick={() => {
+            changeToggle(5);
+          }}
+        >
+          Chats
+        </p>
         {/* <p
           className={usersActive ? "link-sidebar active" : "link-sidebar"}
           onClick={() => {
@@ -89,7 +109,7 @@ export default function AdminPage() {
       <div className="right-side-admin">
         {toggle == 1 ? (
           <div>
-            <h3>7 Days ago:</h3>
+            <h3 className="header-dashbord">7 Days ago:</h3>
             <Dashboard />
           </div>
         ) : (
@@ -98,6 +118,7 @@ export default function AdminPage() {
         {toggle == 2 && <AddMoney />}
         {toggle == 3 && <Cards />}
         {toggle == 4 && <Users />}
+        {toggle == 5 && <AllChats />}
       </div>
     </div>
   );

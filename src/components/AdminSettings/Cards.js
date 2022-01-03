@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "../../styles/AdminPage.css"
 
 export default function Cards() {
     const [cards, setCards] = useState([])
@@ -41,7 +42,7 @@ export default function Cards() {
       getCards();
     }
   }, [token]);
-  return <div>
+  return <div className="cards-admin">
 
         <h3>Bank Liquidity:</h3>
         <h4>{sumBalance}SR</h4>
@@ -49,7 +50,7 @@ export default function Cards() {
         <hr />
         <br />
 
-        <div>
+        <div className="cards-container-admin">
             {
                 cards.map((elem,index)=>{
                     return <div key={index}>

@@ -3,13 +3,15 @@ body {
   margin: 0%;
   padding: 0%;
   background-color: #f3e4c9;
-  color: #837760c7;
-  font-family: 'Urbanist', sans-serif;
+  color: #8b4513;
+  font-family: "Urbanist", sans-serif;
 }
 
 .navbar-container {
+  background-color: #f3e4c988;
+  z-index: 1;
   margin: 0%;
-  height: 50px;
+  height: 41px;
   position: sticky;
   top: 0%;
 }
@@ -19,6 +21,7 @@ body {
   list-style-type: none;
   justify-content: space-around;
   margin: 0%;
+  margin-top: 0.5%;
   /* background-color: #f3e4c9; */
   /* border: 1px solid black; */
 }
@@ -26,6 +29,7 @@ body {
 .navbar-item {
   /* text-decoration: none; */
   font-size: 19px;
+  /* margin-top: 1%; */
   /* border: 1px solid black; */
   margin-top: 0.4%;
   text-align: center;
@@ -35,15 +39,73 @@ body {
 
 .navbar-link {
   text-decoration: none;
-  color: #837760c7;
+  color: #8b4513;
 }
 
 .navbar-link:hover {
-  color: #837760c7;
+  color: #8b45137a;
   text-decoration: underline;
 }
 
 .logo-nav {
-  width: 120px;
-  margin-top: 1%;
+  width: 130px;
+  margin-top: 1.7%;
+}
+
+@media only screen and (max-width: 768px) {
+  .span-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 14px;
+    height: 21px;
+    margin-top: 1%;
+    /* gap: 1px; */
+  }
+
+  .span-container:hover {
+    cursor: pointer;
+  }
+
+  .span-navbar {
+    width: 20px;
+    height: 3.5px;
+    border-radius: 10rem;
+    background-color: #8b4513;
+  }
+
+  .navbar-item{
+    /* display: none; */
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar-container {
+    background-color: #f3e4c988;
+    z-index: 1;
+    width: 100%;
+    margin: 0%;
+    height: 41px;
+    position: sticky;
+    top: 0%;
+    /* border: 1px solid black; */
+  }
+
+  .logo-nav {
+    width: 90px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9%;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    margin-top: 0.1%;
+  }
+
+  .navbar-link {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
 }

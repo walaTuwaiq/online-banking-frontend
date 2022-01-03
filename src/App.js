@@ -22,17 +22,12 @@ import AddMoney from "./components/AdminSettings/AddMoney";
 import Dashboard from "./components/AdminSettings/Dashboard";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-// import Settings from "./components/AdminSettings/Settings";
 import AdminPage from "./components/AdminSettings/AdminPage";
 import Authorization from "./components/home/Authorization";
-// import Verification from "./components/auth/Verification";
 import ResetPass from "./components/auth/ResetPass";
 import Chat from "./components/AdminSettings/Chat";
 import WelcomePage from "./components/home/WelcomePage";
 
-// import io from 'socket.io-client'
-
-// const socket = io("http://localhost:5000")
 
 function App() {
   let token = useSelector((state) => state.token.token);

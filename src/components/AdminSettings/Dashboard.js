@@ -26,18 +26,19 @@ export default function Dashboard() {
 
       setTransactios(response.data);
       let a = response.data
-      // console.log(a,"aaaaaaaa");
-
-      data.push({date:a[0].date,transaction:[{from:a[0].from,to:a[0].to,amount:a[0].amount}]})
-      for(let i =1 ; i<a.length ; i++){
-        if(a[i].date.substr(0,10) == data[data.length-1].date.substr(0.10)){
-          // console.log(a[i].date.substr(0.10),"substr");
-          data[data.length-1].transaction.push({from:a[i].from, to:a[i].to,amount:a[i].amount})
-        } else{
-          data.push({date:a[i].date,transaction:[{from:a[i].from,to:a[i].to,amount:a[i].amount}]})
+      console.log(a,"aaaaaaaa");
+        if(a.length>0){
+          data.push({date:a[0].date,transaction:[{from:a[0].from,to:a[0].to,amount:a[0].amount}]})
+          for(let i =1 ; i<a.length ; i++){
+            if(a[i].date.substr(0,10) == data[data.length-1].date.substr(0.10)){
+              // console.log(a[i].date.substr(0.10),"substr");
+              data[data.length-1].transaction.push({from:a[i].from, to:a[i].to,amount:a[i].amount})
+            } else{
+              data.push({date:a[i].date,transaction:[{from:a[i].from,to:a[i].to,amount:a[i].amount}]})
+            }
+            // data.push(response.data[i].from)
+          }
         }
-        // data.push(response.data[i].from)
-      }
 
       // console.log(data,"data array");
 

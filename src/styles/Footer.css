@@ -3,3 +3,12 @@
   justify-content: space-evenly;
   color: #837760dc;
 }
+
+@media only screen and (max-width: 414px) {
+  .footer-div {
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-left: 6%;
+  }
+}

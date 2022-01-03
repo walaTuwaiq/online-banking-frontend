@@ -1,34 +1,96 @@
-.admin-container{
-    display: flex;
+.admin-container {
+  display: flex;
 }
 
-.sidebar-admin{
-    height: 100vh;
-    width: 15%;
-    border: 1px solid #4f3909;
+.sidebar-admin {
+  height: 100vh;
+  width: 15%;
+  border: 1px solid #e3cca2;
 }
 
-.sidebar-admin p{
-    height: 40px;
-    display: flex;
-    padding-left: 2%;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #e3cca2a1;
-    transition: 0.3s;
+.sidebar-admin p {
+  height: 40px;
+  display: flex;
+  padding-left: 2%;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #e3cca2a1;
+  transition: 0.3s;
 }
 
-.active , .link-sidebar:hover{
-    background-color: #e3cca2dc;
-    transition: 0.3s;
-    color: white;
-    cursor: pointer;
+.active,
+.link-sidebar:hover {
+  background-color: #e3cca2dc;
+  transition: 0.3s;
+  color: white;
+  cursor: pointer;
 }
 
-.right-side-admin{
-    /* margin-left: 1.5%; */
-    margin: auto;
-    margin-top: 0.5%;
-    padding-left: 3%;
-    width: 80%;
+.right-side-admin {
+  /* margin-left: 1.5%; */
+  margin: auto;
+  margin-top: 0.5%;
+  padding-left: 3%;
+  width: 80%;
+}
+
+.btn-users {
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  color: #4f3909;
+  border: 1px solid #c9b590;
+  background-color: #e3cca263;
+  margin-right: 1%;
+}
+
+.btn-users:hover {
+  cursor: pointer;
+  color: #4f390996;
+  background-color: #e3cca263;
+}
+
+.is-admin-p {
+  font-size: 20px;
+  letter-spacing: -1px;
+  color: #dfbf84;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.582);
+  margin: 10px 0 24px;
+  line-height: 50px;
+}
+
+@media only screen and (max-width: 414px) {
+  .sidebar-admin {
+    height: 80vh;
+    width: 30%;
+    border: 1px solid #e3cca2;
+  }
+
+  .right-side-admin {
+    padding-left: 1%;
+    width: 70%;
+  }
+
+  .header-dashbord {
+    font-size: 14px;
+  }
+
+  .cards-admin {
+    width: 85%;
+  }
+
+  .cards-admin h3 {
+    font-size: 15px;
+  }
+  .cards-admin h4 {
+    font-size: 14px;
+  }
+
+  .cards-container-admin {
+    width: 110%;
+    /* border: 1px solid black; */
+  }
 }

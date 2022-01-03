@@ -1,63 +1,101 @@
-.login-form{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    padding: 3%;
-    /* border:1px solid red; */
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-    box-shadow: 2px 2px 5px 2px rgb(79, 57, 9,0.5);
-    border-radius: 1rem;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 3%;
+  /* border:1px solid red; */
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 2px 2px 5px 2px rgb(79, 57, 9, 0.5);
+  border-radius: 1rem;
 }
 
-.login-input{
-    width: 40%;
-    font-size: 15px;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 1%;
-    color: #4f3909;
-    border: 1px solid #58461f;
-    height: 17px;
+.login-input {
+  width: 40%;
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 1%;
+  color: #4f3909;
+  border: 1px solid #58461f;
+  height: 17px;
 }
 
-.login-form label{
-    font-size: 20px;
+.login-form label {
+  font-size: 20px;
 }
 
-.login-form button{
-    width: 44%;
-    height: 30px;
-    margin: auto;
-    margin-top: 2%;
-    font-size: 17px;
-    font-weight: bold;
-    background-color: #4f390927;
-    border: 1px solid #58461f;
-    border-radius: 0.5rem;
-    color: #4f390981;
+.login-form button {
+  width: 44%;
+  height: 30px;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #4f390927;
+  border: 1px solid #58461f;
+  border-radius: 0.5rem;
+  color: #4f390981;
 }
 
-.login-form button:hover{
-    background-color: #4f39094d;
-    cursor: pointer;
-    color: #4f3909;
+.login-form button:hover {
+  background-color: #4f39094d;
+  cursor: pointer;
+  color: #4f3909;
 }
 
-.forget-pass{
-    text-decoration: none;
-    color: #4f3909;
-
+.forget-pass {
+  text-decoration: none;
+  color: #4f3909;
 }
 
-.forget-pass:hover{
-    text-decoration: underline;
+.forget-pass:hover {
+  text-decoration: underline;
 }
 
-.logo-login{
-    width: 400px;
-    margin: auto;
-    margin-bottom: 4%;
+.logo-login {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 4%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 480px) {
+  .login-form {
+    width: 100%;
+  }
+
+  .logo-login {
+    width: 250px;
+  }
+
+  .login-input {
+    width: 80%;
+  }
+  .login-form button {
+      width: 81%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 650px) {
+  .login-form {
+    width: 80%;
+    margin-top: 3%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .login-form {
+    width: 70%;
+    margin-top: 3%;
+  }
+
+  .login-input {
+    width: 50%;
+    height: 24px;
+    font-size: 18px;
+  }
 }

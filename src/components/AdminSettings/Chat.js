@@ -9,10 +9,7 @@ import "../../styles/Chat.css";
 const socket = io.connect("http://localhost:5000");
 
 export default function Chat() {
-  // const [messagesListAdmin, setMessagesListAdmin] = useState([]);
-  // const [messageListUser, setMessageListUser] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
-  // const [allMessages, setAllMessages] = useState([]);
   const [message, setMessage] = useState("");
 
   const token = useSelector((state) => state.token.token);
@@ -22,8 +19,6 @@ export default function Chat() {
   const { id } = useParams();
 
   const sendMessage = async () => {
-    // const allMessages = [...messagesListAdmin,messageListUser]
-    //   console.log(allMessages,"allMessages");
     if (message !== "") {
       const messageData = {
         room: id,
@@ -74,30 +69,11 @@ export default function Chat() {
       });
       if (response.status == 200) {
         setAllMessages(response.data);
-        // setMessagesListAdmin(response.data.adminChats);
-        // setMessageListUser(response.data.userChats);
       }
     };
 
     if (token) {
       getMessages();
-      // const allMessages = [...messagesListAdmin, ...messageListUser];
-      // console.log(allMessages, "allMessages");
-
-      // const sortingMessages = allMessages.time.sort((a,b)=>{
-      //   return a-b
-      // })
-      // let sortingMessages = [];
-      // for (let i = 1; i < allMessages.length; i++) {
-      //   if (allMessages[i].time < allMessages[i - 1].time) {
-      //     sortingMessages.push(allMessages[i]);
-      //     console.log(sortingMessages[i], "sortingMessages");
-      //   } else {
-      //     sortingMessages.push(allMessages[i - 1]);
-      //     // console.log(sortingMessages[i], "sortingMessages");
-      //   }
-      // }
-      // console.log(sortingMessages, "sortingMessages");
     }
   }, [token]);
 
@@ -108,7 +84,7 @@ export default function Chat() {
       </div>
       <div className="body-chat">
         <ScrollToBottom className="scroll-container">
-          {allMessages &&
+          {allMessages.length>0 &&
             allMessages.map((elem, index) => {
               return (
                 <div
@@ -119,38 +95,9 @@ export default function Chat() {
                   <p className="author-message">{elem.author}</p>
                   <p className="text-message">{elem.message}</p>
                   <p className="time-message">{elem.time}</p>
-                  {/* <hr /> */}
                 </div>
               );
             })}
-          {/* {messageListUser &&
-            messageListUser.map((elem, index) => {
-              return (
-                <div
-                  key={index}
-                  className="message-container"
-                  id={elem.author == user_name ? "you" : "other"}
-                >
-                  <div className="text-message">{elem.message}</div>
-                  <div className="time-message">{elem.time}</div>
-                  <div className="author-message">{elem.author}</div>
-                </div>
-              );
-            })}
-          {messagesListAdmin &&
-            messagesListAdmin.map((elem, index) => {
-              return (
-                <div
-                  key={index}
-                  className="message-container"
-                  id={elem.author == user_name ? "you" : "other"}
-                >
-                  <div className="text-message">{elem.message}</div>
-                  <div className="time-message">{elem.time}</div>
-                  <div className="author-message">{elem.author}</div>
-                </div>
-              );
-            })} */}
         </ScrollToBottom>
       </div>
       <div className="footer-chat">
@@ -170,7 +117,7 @@ export default function Chat() {
             sendMessage();
           }}
         >
-          SEND &rarr;	
+          SEND &rarr;
         </button>
       </div>
     </div>
