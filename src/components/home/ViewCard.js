@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-// import "../styles/ViewCard.css";
-import "../../styles/ViewCard.css"
+import "../../styles/ViewCard.css";
 import { useSelector } from "react-redux";
 
 export default function ViewCard() {
-    const [userData, setUserData] = useState([])
-    const [userExpireDate, setUserExpireDate] = useState("")
+  const [userData, setUserData] = useState([]);
+  const [userExpireDate, setUserExpireDate] = useState("");
   const token = useSelector((state) => state.token.token);
 
   useEffect(() => {
@@ -18,19 +17,17 @@ export default function ViewCard() {
       });
 
       // To show expired date in card
-      const fullExpireDate = response.data.card[0].expiredDate.split("")
-      let expireDate = []
-      for(let i=0 ; i<10 ; i++){
-        expireDate.push(fullExpireDate[i])
+      const fullExpireDate = response.data.card[0].expiredDate.split("");
+      let expireDate = [];
+      for (let i = 0; i < 10; i++) {
+        expireDate.push(fullExpireDate[i]);
       }
-      setUserExpireDate(response.data.card[0].expiredDate.substr(0,10))
-      // console.log(response.data.card[0].expiredDate.substr(0,10),"date date");
-      
-      setUserData(response.data)
+      setUserExpireDate(response.data.card[0].expiredDate.substr(0, 10));
+      setUserData(response.data);
     };
 
-    if(token){
-        getUserCard();
+    if (token) {
+      getUserCard();
     }
   }, [token]);
 
@@ -39,16 +36,16 @@ export default function ViewCard() {
       <div className="floating">
         <div className="card_body">
           <div className="logo svg"></div>
-          {
-              userData.card && <div className="card_no text">{userData.card[0].ibanNumber}</div> 
-          }
-          {
-              userData.user && <div className="valid_date text">{userExpireDate}</div> 
-          }
-          {
-              userData.user && <div className="holder text">{userData.user.fullName}</div> 
-          }
-          
+          {userData.card && (
+            <div className="card_no text">{userData.card[0].ibanNumber}</div>
+          )}
+          {userData.user && (
+            <div className="valid_date text">{userExpireDate}</div>
+          )}
+          {userData.user && (
+            <div className="holder text">{userData.user.fullName}</div>
+          )}
+
           <div className="mastercard_icon svg"></div>
         </div>
       </div>

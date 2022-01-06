@@ -14,7 +14,6 @@ body {
   height: 42px;
   position: sticky;
   top: 0%;
-  /* border: 1px solid brown; */
 }
 
 .navbar-list {
@@ -34,7 +33,6 @@ body {
 
 .navbar-link {
   text-decoration: none;
-  /* border: 1px solid black; */
   color: #8b4513;
 }
 
@@ -46,9 +44,7 @@ body {
 .logo-nav {
   display: flex;
   width: 130px;
-  /* margin-top: -1.3%; */
   margin-left: 1%;
-  /* border: 1px solid black; */
 }
 
 .label-check img {
@@ -66,38 +62,15 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  /* .span-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 14px;
-    height: 21px;
-    margin-top: 1%;
-  }
-
-  .span-container:hover {
-    cursor: pointer;
-  }
-
-  .span-navbar {
-    width: 20px;
-    height: 3.5px;
-    border-radius: 10rem;
-    background-color: #8b4513;
-  } */
-
   .navbar-list {
-    /* display: block; */
-    /* margin-bottom: 30px; */
     left: 100%;
     position: fixed;
-    /* display: flex; */
     flex-direction: column;
     top: 58px;
     width: 100%;
     height: 100vh;
     z-index: 30px;
     background-color: #f3e4c9f5;
-    /* border: 1px solid #8b4513; */
     transition: all 0.5s;
   }
 
@@ -110,10 +83,6 @@ body {
     margin-top: 3%;
     margin-left: 4%;
   }
-
-  /* .navbar-item {
-    margin-bottom: 30px;
-  } */
 
   .label-check {
     display: inline;
@@ -139,7 +108,6 @@ body {
     height: 41px;
     position: sticky;
     top: 0%;
-    /* border: 1px solid black; */
   }
 
   .logo-nav {

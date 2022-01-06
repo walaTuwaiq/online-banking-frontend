@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 export default function AllChats() {
   const [chats, setChats] = useState([]);
 
-  const history = useHistory()
+  const history = useHistory();
 
   const token = useSelector((state) => state.token.token);
 

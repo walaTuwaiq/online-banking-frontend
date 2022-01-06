@@ -43,7 +43,6 @@
 
 .pass-msg span {
   font-size: 17px;
-  /* top: -1px; */
 }
 
 .verification {
@@ -89,7 +88,7 @@
   color: #4f3909;
 }
 
-.loader{
+.loader {
   margin: 0 0 2em;
   height: 100px;
   width: 20%;
@@ -100,11 +99,11 @@
   vertical-align: top;
 }
 
-svg path{
+svg path {
   fill: #4f3909;
 }
 
-.loader p{
+.loader p {
   font-weight: bold;
   font-size: 13px;
   margin-top: 0%;

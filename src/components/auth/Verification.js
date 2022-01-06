@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../../styles/Signup.css"
+import "../../styles/Signup.css";
 
 export default function Verification(props) {
   const [code, setCode] = useState("");
@@ -16,12 +16,6 @@ export default function Verification(props) {
   const dateOfBirth = props.dateOfBirth;
   const nationalId = props.nationalId;
   const nationality = props.nationality;
-
-  // useEffect(() => {
-
-  // }, [props])
-
-  // console.log(props,"props");
 
   const checkCode = async () => {
     try {

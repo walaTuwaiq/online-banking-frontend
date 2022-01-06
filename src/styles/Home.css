@@ -16,7 +16,6 @@
 .copy-icon {
   width: 14px;
   position: relative;
-  /* top: 5%; */
   left: 30%;
 }
 
@@ -32,7 +31,6 @@
 
 .show-hide-icons:hover {
   cursor: pointer;
-  /* background-color: rgba(255, 255, 255, 0.192); */
   border-radius: 1rem;
 }
 
@@ -108,9 +106,6 @@
   position: relative;
   right: 4%;
   top: -15px;
-  /* left: -1.4%; */
-  /* top: 80%; */
-  /* bottom: 50%; */
   background-color: #7065501f;
   font-size: 11px;
 }
@@ -123,13 +118,10 @@
 .welcome-container {
   width: 100%;
   height: 90vh;
-  /* margin: auto; */
   background-image: url("../media/bg3.png");
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
-  /* background-size: cover; */
-  /* bg */
 }
 
 .welcome-text {
@@ -169,7 +161,6 @@
   }
 
   .content-container {
-    /* width: 60%; */
     grid-template-columns: 1fr 1fr;
     gap: 5%;
     margin: auto;
@@ -202,26 +193,6 @@
   }
 }
 
-/* Extra small devices (phones, 600px and down) */
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 601px) {
-  .welcome-container {
-    width: 100%;
-    height: 50vh;
-  }
-  
-  .welcome-text {
-    left: -35px;
-    font-size: 75px;
-  }
-  
-  .welcome-text p {
-    font-size: 15px;
-  }
-} */
-
-
 @media only screen and (max-width: 1024px) {
   .welcome-text {
     left: -90px;
@@ -239,25 +210,24 @@
     left: 35px;
     top: -1px;
   }
-  
+
   .iban-container .msg {
     left: -7px;
   }
-  
+
   .welcome-container {
     width: 100%;
     height: 50vh;
   }
-  
+
   .welcome-text {
     left: -40px;
     font-size: 80px;
   }
-  
+
   .welcome-text p {
     font-size: 17px;
   }
-  
 }
 @media only screen and (max-width: 600px) {
   .welcome-container {

@@ -18,14 +18,6 @@ export default function Cards() {
         });
         if (response.status == 200) {
           setCards(response.data);
-
-          // console.log(response.data[0].isAcitve, "isAcitveisAcitve");
-          // const a = response.data[0].isAcitve
-          // console.log(typeOf(a));
-
-          // console.log(response.data, "response");
-          // get all cards with user data
-
           let cardsArray = response.data;
           let balance = 0;
           for (let i = 0; i < cardsArray.length; i++) {
@@ -57,9 +49,6 @@ export default function Cards() {
               <div key={index}>
                 <p>Iban number: SA{elem.ibanNumber}</p>
                 <p>Balance: {elem.balance}SR</p>
-                {
-                  // console.log(elem,"isActive")
-                }
                 {elem.isAcitve && <p>isActive: {elem.isActive.toString()}</p>}
                 <p>Expired date: {elem.expiredDate.substr(0, 10)}</p>
                 <hr />

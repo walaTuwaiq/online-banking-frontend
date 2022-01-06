@@ -14,7 +14,6 @@ export default function Chat() {
 
   const token = useSelector((state) => state.token.token);
   const user_name = useSelector((state) => state.token.user_name);
-  const user_id = useSelector((state) => state.token.user_id);
 
   const { id } = useParams();
 
@@ -70,7 +69,7 @@ export default function Chat() {
       if (response.status == 200) {
         if (response.data === "error") {
           setAllMessages([]);
-        }else {
+        } else {
           setAllMessages(response.data);
         }
       }
@@ -87,7 +86,6 @@ export default function Chat() {
         <h3>LIVE CHAT:</h3>
       </div>
       <div className="body-chat">
-        {/* {console.log(allMessages == true, "allMessages")} */}
         <ScrollToBottom className="scroll-container">
           {allMessages &&
             allMessages.map((elem, index) => {

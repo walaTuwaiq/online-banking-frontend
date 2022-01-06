@@ -45,7 +45,7 @@ export default function Currency() {
             keys.map((elem, index) => {
               return (
                 <div key={index}>
-                    <p className="key">{elem}</p>
+                  <p className="key">{elem}</p>
                 </div>
               );
             })}

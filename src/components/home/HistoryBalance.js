@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import "../styles/HistoryBalance.css"
 import "../../styles/HistoryBalance.css";
 
 export default function HistoryBalance() {
@@ -42,7 +41,6 @@ export default function HistoryBalance() {
 
   return (
     <div className="history-container">
-      {/* {console.log(historyUser, "historyUser")} */}
       {historyUser.paymentsUser && historyUser.transactionsUser ? (
         <div>
           {historyUser.paymentsUser &&

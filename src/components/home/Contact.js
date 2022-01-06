@@ -89,9 +89,7 @@ export default function Contact() {
         <h3>LIVE CHAT:</h3>
       </div>
       <div className="body-chat">
-        {
-          console.log(allMessages,"all")
-        }
+        {console.log(allMessages, "all")}
         <ScrollToBottom className="scroll-container">
           {allMessages &&
             allMessages.map((elem, index) => {

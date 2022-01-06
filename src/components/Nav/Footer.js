@@ -1,7 +1,6 @@
 import React from "react";
 import "../../styles/Footer.css";
 import WR from "../../media/wala.png";
-// import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (

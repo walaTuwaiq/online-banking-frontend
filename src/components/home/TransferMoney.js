@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Receipt from "./Receipt";
-// import "../styles/TransferMoney.css"
 import "../../styles/TransferMoney.css";
 
 export default function TransferMoney() {
@@ -28,8 +27,6 @@ export default function TransferMoney() {
       const response = await axios.get("/iban-cards");
 
       setIbanCards(response.data);
-      // console.log(response.data);
-      // right data. array of objects
     };
     getIbans();
   }, []);
@@ -38,9 +35,6 @@ export default function TransferMoney() {
     const result = ibanCards.filter((elem, index) => {
       return elem.ibanNumber == ibanNumber;
     });
-    console.log(result, "result");
-    // empty array
-
     setResultSearch(result);
   };
 
@@ -109,16 +103,16 @@ export default function TransferMoney() {
                 return (
                   <div key={index}>
                     {elem.ibanNumber ? (
-                        <p>
-                            Click On iban if it's correct:
-                      <p
-                        className="iban-num"
-                        onClick={() => {
-                          saveToInput(elem._id);
-                        }}
-                      >
-                        SA{elem.ibanNumber}
-                      </p>
+                      <p>
+                        Click On iban if it's correct:
+                        <p
+                          className="iban-num"
+                          onClick={() => {
+                            saveToInput(elem._id);
+                          }}
+                        >
+                          SA{elem.ibanNumber}
+                        </p>
                       </p>
                     ) : (
                       ""

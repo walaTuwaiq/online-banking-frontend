@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import "../styles/Home.css";
-import "../../styles/Home.css"
-// import copyIcone from "../media/copy-icon.png";
-import copyIcone from "../../media/copy-icon.png"
-// import hideIcon from "../media/hide.png";
-import hideIcon from "../../media/hide.png"
-// import showIcon from "../media/show.png";
-import showIcon from "../../media/show.png"
+import "../../styles/Home.css";
+import copyIcone from "../../media/copy-icon.png";
+import hideIcon from "../../media/hide.png";
+import showIcon from "../../media/show.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -26,7 +22,6 @@ export default function Home() {
         },
       });
       setUserData(response.data);
-      // console.log(response.data);
     };
     if (token) {
       getUserData();
@@ -46,17 +41,15 @@ export default function Home() {
 
   return (
     <div>
-      {/* {console.log(token)}
-      {console.log(userName)} */}
-      {/* {console.log(userData)} */}
-      {/* <button onClick={()=>{console.log(token)}}>token</button> */}
       {userData.user && (
         <div className="user-data-container">
           <h2>{userData.user.fullName}</h2>
           {showToggle ? (
             <div className="balance-container">
               <div className="balance">
-                <h4>Your Balance: {userData.userCards[0].balance.toFixed(2)} SR</h4>
+                <h4>
+                  Your Balance: {userData.userCards[0].balance.toFixed(2)} SR
+                </h4>
               </div>
               <div className="icon">
                 <img
@@ -149,13 +142,13 @@ export default function Home() {
             Customer Service
           </Link>
         </div>
-        {isAdmin &&
+        {isAdmin && (
           <div className="content-item">
             <Link className="content-links" to="/add-money">
               Add Money
             </Link>
           </div>
-        }
+        )}
       </div>
     </div>
   );

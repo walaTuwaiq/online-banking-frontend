@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import "../styles/NavBar.css";
 import "../../styles/NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../../reducers/token";
@@ -171,12 +170,6 @@ export default function NavBar() {
           <span className="span-navbar"></span>
           <span className="span-navbar"></span>
         </div>
-
-        {/* {
-  toggle && <div>
-
-  </div>
-} */}
       </ul>
     </div>
   );

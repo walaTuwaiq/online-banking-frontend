@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import token from '../reducers/token'
 import { useSelector } from "react-redux";
 
 export default function UpdateData() {
@@ -45,18 +44,11 @@ export default function UpdateData() {
           },
         }
       );
-      // console.log(response, "response");
 
       if (response.status === 200) {
-        //it's mean somthing about click button and refresh browser!
-        // e.preventDefault();
-
-        // console.log(response.data);
-        //   changeToggle();
-        setUserName(response.data.user.userName)
+        setUserName(response.data.user.userName);
         setUserData(response.data);
-        setToggle(!toggle)
-        // setToggle(true);
+        setToggle(!toggle);
         setErrorMessage("");
       }
     } else {
@@ -66,19 +58,18 @@ export default function UpdateData() {
 
   return (
     <div>
-      {/* {userData.user ? console.log(userData) : console.log(userData.user)} */}
-
       {userData.user ? (
         toggle ? (
           <div>
             <input
               type="text"
               placeholder="user name"
-              onChange={(e)=>{setUserInput(e.target.value)}}
+              onChange={(e) => {
+                setUserInput(e.target.value);
+              }}
             />
             <button
               onClick={() => {
-                //It's work but not working like i want, must refresh browser to change user
                 updateData();
               }}
             >
@@ -105,8 +96,6 @@ export default function UpdateData() {
       ) : (
         ""
       )}
-
-      {/* {console.log(userData.userCards)} */}
 
       {userData.userCards
         ? userData.userCards.map((elem, index) => {

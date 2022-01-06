@@ -19,7 +19,6 @@ export default function Users() {
       });
 
       setUsers(response.data);
-      // console.log(response.data,"get method");
     };
 
     if (token) {
@@ -29,8 +28,6 @@ export default function Users() {
 
   const deleteUser = async (id) => {
     try {
-      // console.log(id,"id");
-
       const response = await axios.delete(`/remove-user/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,

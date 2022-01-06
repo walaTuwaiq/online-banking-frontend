@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-// import "../styles/Signup.css"
 import "../../styles/Signup.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -8,7 +7,6 @@ import Verification from "./Verification";
 import logoBank from "../../media/logo-bank.png";
 
 import { validEmail, validPassword } from "./Regex";
-// import { validEmail, validPassword } from './regex.js';
 
 export default function Signup() {
   const [date, setDate] = useState("");
@@ -22,10 +20,8 @@ export default function Signup() {
   const [errorMessage, setErrorMessage] = useState("");
   const [nationality, setNationality] = useState("");
   const [toggle, setToggle] = useState(false);
-  // const [loading, setLoading] = useState("");
   const [loadingToggle, setLoadingToggle] = useState(false);
 
-  // const loadingTags = "";
   const submitDate = async () => {
     if (!validEmail.test(email)) {
       setErrorMessage("Your email is invalid");
@@ -45,11 +41,10 @@ export default function Signup() {
     ) {
       if (check && nationalId.length === 10) {
         try {
-          setLoadingToggle(true)
+          setLoadingToggle(true);
           const response = await axios.post("/msg", {
             email,
           });
-          // console.log(response.data, "response");
           if (response.status === 201) {
             setToggle(!toggle);
           } else {

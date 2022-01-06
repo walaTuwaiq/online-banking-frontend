@@ -16,7 +16,6 @@ import { useEffect } from "react";
 import { setToken } from "./reducers/token";
 import OneHistoryPayment from "./components/home/OneHistoryPayment";
 import OneHistoryTransaction from "./components/home/OneHistoryTransaction";
-import DepositMoney from "./components/AdminSettings/DepositMoney";
 import Footer from "./components/Nav/Footer";
 import AddMoney from "./components/AdminSettings/AddMoney";
 import Dashboard from "./components/AdminSettings/Dashboard";
@@ -48,14 +47,11 @@ function App() {
       );
     }
     try {
-      // console.log(token, "token");
       const response = await axios.get("/login", {
         headers: {
           authorization: `Bearer ${token}`,
         },
       });
-
-      // console.log(response.data, "response");
     } catch (error) {
       if (token) {
         dispatch(setToken("", "", ""));
@@ -82,19 +78,14 @@ function App() {
               <Route path="/home" exact component={WelcomePage} />
               <Route path="/update-data" exact component={UpdateData} />
               <Route path="/customer-service" exact component={Contact} />
-              {/* <Route path="/add-money" exact component={AddMoney} /> */}
-              {/* <Route path="/admin-dashboard" exact component={Dashboard} /> */}
               <Route path="/admin-page" exact component={AdminPage} />
               <Route path="/customer-service/:id" exact component={Chat} />
-              {/* <Route path="/settings" exact component={Settings} /> */}
               <Route path="/about-us" exact component={AboutUs} />
               <Route path="/currency-today" exact component={Currency} />
               <Route path="*" exact component={NotFoundPage} />
             </Switch>
           </div>
-        ) 
-        : 
-        (
+        ) : (
           <div>
             <Switch>
               <Route path="/home" exact component={Home} />
@@ -106,7 +97,6 @@ function App() {
               <Route path="/customer-service" exact component={Contact} />
               <Route path="/payment" exact component={Payment} />
               <Route path="/authorization" exact component={Authorization} />
-              <Route path="/deposit-money" exact component={DepositMoney} />
               <Route path="/currency-today" exact component={Currency} />
               <Route
                 path="/full-data-payment/:id"
@@ -130,8 +120,6 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/forget-pass" exact component={ResetPass} />
           <Route path="/signup" exact component={Signup} />
-          {/* <Route path="/verification-number" exact component={Verification} /> */}
-          {/* <Route path="/update-data" exact component={UpdateData} /> */}
           <Route path="*" exact component={NotFoundPage} />
         </Switch>
       )}
