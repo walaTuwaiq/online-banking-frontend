@@ -2,6 +2,42 @@
   display: flex;
   justify-content: space-evenly;
   color: #837760dc;
+  position: relative;
+  left: -25%;
+}
+
+.list-item-footer {
+  list-style: none;
+}
+
+.a-item-footer {
+  text-decoration: none;
+  color: #837760dc;
+}
+
+.a-item-footer:hover {
+  text-decoration: underline;
+  color: #83776098;
+}
+
+.wala-logo {
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.507);
+  border-radius: 1rem;
+  transition: 0.4s;
+}
+
+.wala-logo:hover {
+  transform: scale(1.2);
+  opacity: 200%;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.made-by {
+  list-style: none;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 414px) {

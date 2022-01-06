@@ -26,7 +26,7 @@ export default function Dashboard() {
 
       setTransactios(response.data);
       let a = response.data
-      console.log(a,"aaaaaaaa");
+      // console.log(a,"aaaaaaaa");
         if(a.length>0){
           data.push({date:a[0].date,transaction:[{from:a[0].from,to:a[0].to,amount:a[0].amount}]})
           for(let i =1 ; i<a.length ; i++){

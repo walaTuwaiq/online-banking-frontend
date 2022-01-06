@@ -68,7 +68,11 @@ export default function Chat() {
         },
       });
       if (response.status == 200) {
-        setAllMessages(response.data);
+        if (response.data === "error") {
+          setAllMessages([]);
+        }else {
+          setAllMessages(response.data);
+        }
       }
     };
 
@@ -83,8 +87,9 @@ export default function Chat() {
         <h3>LIVE CHAT:</h3>
       </div>
       <div className="body-chat">
+        {/* {console.log(allMessages == true, "allMessages")} */}
         <ScrollToBottom className="scroll-container">
-          {allMessages.length>0 &&
+          {allMessages &&
             allMessages.map((elem, index) => {
               return (
                 <div

@@ -14,25 +14,6 @@ export default function Payment() {
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
-    // useEffect(() => {
-    //     const getIbans = async()=>{
-    //         const response = await axios.get("/iban-cards")
-
-    //         setIbanCards(response.data)
-
-    //     }
-    //     getIbans()
-    // }, [])
-
-    const saveToInput = (e)=>{
-        setToInput(e.target.value)
-        // console.log(id);
-    }
-
-    const saveAmountInput = (e)=>{
-        setAmountInput(e.target.value)
-    }
-
     const submitTransaction= async()=>{
         const response = await axios.post("/payment",{
             to: toInput,
@@ -47,15 +28,15 @@ export default function Payment() {
             setCurrentUserBalance(Number(response.data.balance))
             setCurrentUserIban(Number(response.data.ibanNumber))
         }
-        console.log(response.data);
+        // console.log(response.data);
     }
 
     return (
-        <div>
+        <div className="add-money">
             {
                 toggle? <Receipt amount={Number(amountInput)} ibanNumber={toInput} currentUserBalance={currentUserBalance} currentUserIban={currentUserIban} />
                 : 
-                    <div>
+                    <div className='container-transfer'>
                     <h3>Current date is {date}</h3>
         
                     {/* <label>To: </label> <input onChange={saveToInput} type="text" placeholder='To'/> */}

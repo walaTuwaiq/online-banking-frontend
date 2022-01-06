@@ -33,16 +33,81 @@
   font-size: 15px;
 }
 
-.pass-msg{
+.pass-msg {
   font-size: 13px;
   position: relative;
   top: -7px;
   color: #58461f;
   opacity: 60%;
 }
-.pass-msg span{
+
+.pass-msg span {
   font-size: 17px;
   /* top: -1px; */
+}
+
+.verification {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 3%;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 2px 2px 5px 2px rgb(79, 57, 9, 0.5);
+  border-radius: 1rem;
+}
+
+.verification input {
+  width: 40%;
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 1%;
+  color: #4f3909;
+  border: 1px solid #58461f;
+  height: 17px;
+}
+
+.verification button {
+  width: 44%;
+  height: 30px;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #4f390927;
+  border: 1px solid #58461f;
+  border-radius: 0.5rem;
+  color: #4f390981;
+}
+
+.verification button:hover {
+  background-color: #4f39094d;
+  cursor: pointer;
+  color: #4f3909;
+}
+
+.loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+svg path{
+  fill: #4f3909;
+}
+
+.loader p{
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 0%;
 }
 
 @media only screen and (max-width: 1024px) {

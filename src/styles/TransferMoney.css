@@ -1,7 +1,16 @@
-.iban-num:hover{
-    cursor: pointer;
+.iban-num:hover {
+  cursor: pointer;
 }
 
-.amount-div{
-    transition: 1s ease;
+.amount-div {
+  transition: 1s ease;
+}
+
+.input-transfer {
+  border: 1px solid red;
+}
+
+.container-transfer{
+    display: flex;
+    flex-direction: column;
 }

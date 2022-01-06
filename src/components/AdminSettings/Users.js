@@ -2,13 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import "../../styles/AdminPage.css"
+import "../../styles/AdminPage.css";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
 
   const token = useSelector((state) => state.token.token);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -54,23 +53,32 @@ export default function Users() {
         users.map((elem, index) => {
           return (
             <div key={index}>
+              <h3 className="fullname-users">- {elem.fullName}</h3>
+              {elem.isAdmin && (
+                <p className="is-admin-p"> &#9734; He/She is Admin</p>
+              )}
               <p>User Name: {elem.userName}</p>
-              <p>Full Name: {elem.fullName}</p>
               <p>Nationality: {elem.nationality}</p>
               <p>Date Of Birth: {elem.dateOfBirth}</p>
               <p>National ID: {elem.nationalId}</p>
               <p>Last Log In: {elem.lastLogIn}</p>
-              <button className="btn-users"
-                onClick={() => {
-                  openChatWithUser(elem._id);
-                }}
-              >
-                Chat
-              </button>
               {elem.isAdmin ? (
-                <p className="is-admin-p"> &#9734; He/She is Admin</p>
+                ""
               ) : (
-                <button className="btn-users"
+                <button
+                  className="btn-users"
+                  onClick={() => {
+                    openChatWithUser(elem._id);
+                  }}
+                >
+                  Chat
+                </button>
+              )}
+              {elem.isAdmin ? (
+                ""
+              ) : (
+                <button
+                  className="btn-users"
                   onClick={() => {
                     deleteUser(elem._id);
                   }}

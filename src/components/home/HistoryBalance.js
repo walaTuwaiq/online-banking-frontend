@@ -18,19 +18,10 @@ export default function HistoryBalance() {
           authorization: `Bearer ${token}`,
         },
       });
-      // console.log(response.data.paymentsUser,"response");
-      // console.log(response.data.transactionsUser,"response2");
-      // console.log(response.data.paymentsUser == true || response.data.transactionsUser == true, "true or false");
-      // object with 2 keys, if don't have history these keys have empty array
-
-      // to handling: show message if don't have history
-      // console.log(response.data.paymentsUser.length == true,"response");
-
       if (
         response.data.paymentsUser.length > 0 ||
         response.data.transactionsUser.length > 0
       ) {
-        console.log(response.data, "responseresponse");
         setHistoryUser(response.data);
         setMessage("");
       }
@@ -50,8 +41,8 @@ export default function HistoryBalance() {
   };
 
   return (
-    <div>
-      {console.log(historyUser, "historyUser")}
+    <div className="history-container">
+      {/* {console.log(historyUser, "historyUser")} */}
       {historyUser.paymentsUser && historyUser.transactionsUser ? (
         <div>
           {historyUser.paymentsUser &&
@@ -67,7 +58,6 @@ export default function HistoryBalance() {
                   <h3>paymentsUser</h3>
                   <p>date: {elem.date}</p>
                   <p>amount: {elem.amount}</p>
-                  {/* <p>SA{elem.cardId.ibanNumber}</p> */}
                 </div>
               );
             })}
@@ -84,7 +74,6 @@ export default function HistoryBalance() {
                   <h3>transactionsUser</h3>
                   <p>date: {elem.date}</p>
                   <p>amount: {elem.amount}</p>
-                  {/* <p>SA{elem.cardId.ibanNumber}</p> */}
                 </div>
               );
             })}

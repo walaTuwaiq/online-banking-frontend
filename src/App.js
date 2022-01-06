@@ -27,7 +27,7 @@ import Authorization from "./components/home/Authorization";
 import ResetPass from "./components/auth/ResetPass";
 import Chat from "./components/AdminSettings/Chat";
 import WelcomePage from "./components/home/WelcomePage";
-
+import Currency from "./components/home/Currency";
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -43,7 +43,7 @@ function App() {
           JSON.parse(localStorage.getItem("token")),
           JSON.parse(localStorage.getItem("admin")),
           JSON.parse(localStorage.getItem("user")),
-          JSON.parse(localStorage.getItem("userName")),
+          JSON.parse(localStorage.getItem("userName"))
         )
       );
     }
@@ -63,7 +63,7 @@ function App() {
         localStorage.setItem("admin", "");
         localStorage.setItem("user", "");
         localStorage.setItem("userName", "");
-        JSON.parse(localStorage.getItem("user",""))
+        JSON.parse(localStorage.getItem("user", ""));
         history.push("/");
         alert("Log in again");
       }
@@ -75,60 +75,67 @@ function App() {
   return (
     <div>
       <NavBar />
-      {token? isAdmin? <div>
-              <Switch>
+      {token ? (
+        isAdmin ? (
+          <div>
+            <Switch>
               <Route path="/home" exact component={WelcomePage} />
-                <Route path="/update-data" exact component={UpdateData} />
-                <Route path="/customer-service" exact component={Contact} />
-                {/* <Route path="/add-money" exact component={AddMoney} /> */}
-                {/* <Route path="/admin-dashboard" exact component={Dashboard} /> */}
-                <Route path="/admin-page" exact component={AdminPage} />
-                <Route path="/customer-service/:id" exact component={Chat} />
-                {/* <Route path="/settings" exact component={Settings} /> */}
-                <Route path="/about-us" exact component={AboutUs} />
-                <Route path="*" exact component={NotFoundPage} />
-              </Switch>
-            </div> : 
-        <div>
-          <Switch>
-          <Route path="/home" exact component={Home} />
-          <Route path="/" exact component={Home} />
-            <Route path="/card" exact component={ViewCard} />
-            <Route path="/history-balance" exact component={HistoryBalance} />
-            <Route path="/transfer-money" exact component={TransferMoney} />
-            <Route path="/update-data" exact component={UpdateData} />
-            <Route path="/customer-service" exact component={Contact} />
-            <Route path="/payment" exact component={Payment} />
-            <Route path="/authorization" exact component={Authorization} />
-            <Route path="/deposit-money" exact component={DepositMoney} />
+              <Route path="/update-data" exact component={UpdateData} />
+              <Route path="/customer-service" exact component={Contact} />
+              {/* <Route path="/add-money" exact component={AddMoney} /> */}
+              {/* <Route path="/admin-dashboard" exact component={Dashboard} /> */}
+              <Route path="/admin-page" exact component={AdminPage} />
+              <Route path="/customer-service/:id" exact component={Chat} />
+              {/* <Route path="/settings" exact component={Settings} /> */}
+              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/currency-today" exact component={Currency} />
+              <Route path="*" exact component={NotFoundPage} />
+            </Switch>
+          </div>
+        ) 
+        : 
+        (
+          <div>
+            <Switch>
+              <Route path="/home" exact component={Home} />
+              <Route path="/" exact component={Home} />
+              <Route path="/card" exact component={ViewCard} />
+              <Route path="/history-balance" exact component={HistoryBalance} />
+              <Route path="/transfer-money" exact component={TransferMoney} />
+              <Route path="/update-data" exact component={UpdateData} />
+              <Route path="/customer-service" exact component={Contact} />
+              <Route path="/payment" exact component={Payment} />
+              <Route path="/authorization" exact component={Authorization} />
+              <Route path="/deposit-money" exact component={DepositMoney} />
+              <Route path="/currency-today" exact component={Currency} />
+              <Route
+                path="/full-data-payment/:id"
+                exact
+                component={OneHistoryPayment}
+              />
+              <Route
+                path="/full-data-transaction/:id"
+                exact
+                component={OneHistoryTransaction}
+              />
+              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="*" exact component={NotFoundPage} />
+            </Switch>
+          </div>
+        )
+      ) : (
+        <Switch>
+          <Route path="/" exact component={WelcomePage} />
+          <Route path="/about-us" exact component={AboutUs} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/forget-pass" exact component={ResetPass} />
+          <Route path="/signup" exact component={Signup} />
+          {/* <Route path="/verification-number" exact component={Verification} /> */}
+          {/* <Route path="/update-data" exact component={UpdateData} /> */}
+          <Route path="*" exact component={NotFoundPage} />
+        </Switch>
+      )}
 
-            <Route
-              path="/full-data-payment/:id"
-              exact
-              component={OneHistoryPayment}
-            />
-            <Route
-              path="/full-data-transaction/:id"
-              exact
-              component={OneHistoryTransaction}
-            />
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="*" exact component={NotFoundPage} />
-          </Switch>
-        </div>
-      :
-      <Switch>
-        <Route path="/" exact component={WelcomePage} />
-        <Route path="/about-us" exact component={AboutUs} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/forget-pass" exact component={ResetPass} />
-        <Route path="/signup" exact component={Signup} />
-        {/* <Route path="/verification-number" exact component={Verification} /> */}
-        {/* <Route path="/update-data" exact component={UpdateData} /> */}
-        <Route path="*" exact component={NotFoundPage} />
-      </Switch>
-}
-        
       <Footer />
     </div>
   );

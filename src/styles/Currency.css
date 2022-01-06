@@ -1,0 +1,19 @@
+.container-currency{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.container-currency div{
+    width: 200px;
+    text-align: center;
+    border-bottom: 1px solid #4f39094d;
+}
+
+.header-currency{
+    text-align: center;
+}
+
+.key{
+    font-weight: bold;
+}

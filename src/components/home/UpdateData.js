@@ -64,10 +64,6 @@ export default function UpdateData() {
     }
   };
 
-  const userNameInput = (e) => {
-    setUserInput(e.target.value);
-  };
-
   return (
     <div>
       {/* {userData.user ? console.log(userData) : console.log(userData.user)} */}

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import "../../styles/AdminPage.css"
 
 export default function AddMoney() {
     const [id, setId] = useState("")
@@ -40,7 +41,8 @@ export default function AddMoney() {
     }
 
     return (
-        <div>
+        <div className='add-money'>
+            <h2>Add Money To Card:</h2>
             <label>Enter ID To Card:</label> <input onChange={saveIdInput} type="text" placeholder='ID CARD'/>
             <label>Enter Amount:</label> <input onChange={saveAmountInput} type="number" placeholder='Amount'/>
             <button onClick={()=>{addMoney()}}>ADD</button>

@@ -62,6 +62,61 @@
   line-height: 50px;
 }
 
+.fullname-users {
+  font-size: 18px;
+  margin: 10px 0 0px 10px;
+}
+
+.add-money {
+  width: 60%;
+  padding: 1%;
+  height: 400px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3cca2ab;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 2px #e3cca2;
+}
+
+.add-money input {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 1%;
+  color: #4f3909;
+  border: 1px solid #4f3909;
+}
+
+.add-money label {
+  margin-top: 0.5%;
+}
+
+.add-money button {
+  width: 41%;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  color: #4f3909;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 0.5rem;
+  border: 1px solid #4f3909;
+  background-color: #e3cca2b6;
+}
+
+.add-money button:hover {
+  cursor: pointer;
+  background-color: #e3cca263;
+  color: #4f39099d;
+}
+
+/* In Transfer Component in Home folder */
+
+
 @media only screen and (max-width: 414px) {
   .sidebar-admin {
     height: 80vh;
