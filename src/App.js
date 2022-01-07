@@ -44,7 +44,7 @@ function App() {
       );
     }
     try {
-      const response = await axios.get(`${process.env.HOST}/login`, {
+      const response = await axios.get(`${process.env.URL}/login`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

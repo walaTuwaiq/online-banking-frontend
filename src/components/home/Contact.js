@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ScrollToBottom from "react-scroll-to-bottom";
 import axios from "axios";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect(process.env.URL);
 
 export default function Contact() {
   const [message, setMessage] = useState("");
@@ -31,7 +31,7 @@ export default function Contact() {
       setMessage("");
 
       await axios.post(
-        `${process.env.HOST}/send-message-chat`,
+        `${process.env.URL}/send-message-chat`,
         {
           userId: user_id,
           message,
@@ -60,7 +60,7 @@ export default function Contact() {
     socket.emit("join_room", user_id);
     const getMessages = async () => {
       try {
-        const response = await axios.get(`${process.env.HOST}/chat-messages`, {
+        const response = await axios.get(`${process.env.URL}/chat-messages`, {
           headers: {
             authorization: `Bearer ${token}`,
           },

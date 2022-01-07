@@ -18,7 +18,7 @@ export default function Payment() {
 
   const submitTransaction = async () => {
     const response = await axios.post(
-      `${process.env.HOST}/payment`,
+      `${process.env.URL}/payment`,
       {
         to: toInput,
         amount: Number(amountInput),

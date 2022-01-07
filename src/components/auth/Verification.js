@@ -19,13 +19,13 @@ export default function Verification(props) {
 
   const checkCode = async () => {
     try {
-      const response = await axios.post(`${process.env.HOST}/check-msg`, {
+      const response = await axios.post(`${process.env.URL}/check-msg`, {
         email,
         code,
       });
       console.log(response.data, "response");
       if (response.status == 200) {
-        const createAccount = await axios.post(`${process.env.HOST}/signup`, {
+        const createAccount = await axios.post(`${process.env.URL}/signup`, {
           email,
           userName,
           fullName,

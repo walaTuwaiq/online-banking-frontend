@@ -24,7 +24,7 @@ export default function TransferMoney() {
 
   useEffect(() => {
     const getIbans = async () => {
-      const response = await axios.get(`${process.env.HOST}/iban-cards`);
+      const response = await axios.get(`${process.env.URL}/iban-cards`);
 
       setIbanCards(response.data);
     };
@@ -46,7 +46,7 @@ export default function TransferMoney() {
   const submitTransaction = async () => {
     try {
       const response = await axios.post(
-        `${process.env.HOST}/transaction`,
+        `${process.env.URL}/transaction`,
         {
           to: toInput,
           amount: Number(amountInput),

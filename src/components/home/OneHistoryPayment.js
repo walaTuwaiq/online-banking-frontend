@@ -10,7 +10,7 @@ export default function OneHistoryPayment() {
 
   useEffect(() => {
     const getHistoryData = async () => {
-      const response = await axios.get(`${process.env.HOST}/full-data-payment/${id}`, {
+      const response = await axios.get(`${process.env.URL}/full-data-payment/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
