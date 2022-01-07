@@ -14,14 +14,6 @@ export default function Login() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const saveEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const savePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   const submitDate = async () => {
     if (password !== "" && email !== "") {
       try {

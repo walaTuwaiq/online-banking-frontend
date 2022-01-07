@@ -213,7 +213,7 @@ export default function Signup() {
           </button>
 
           {loadingToggle && (
-            <div class="loader loader--style3" title="2">
+            <div className="loader loader--style3" title="2">
               <svg
                 version="1.1"
                 id="loader-1"

@@ -20,10 +20,10 @@ export default function NavBar() {
   return (
     <div className="navbar-container">
       <div>
-        <input type="checkbox" checked={checked} id="check" />
+        <input type="checkbox" checked={checked} onChange={()=>{}} id="check" />
         <label
-          class="label-check"
-          for="check"
+          className="label-check"
+          htmlFor="check"
           onClick={() => {
             setChecked(!checked);
           }}
