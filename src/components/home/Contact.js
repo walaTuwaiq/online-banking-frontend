@@ -31,7 +31,7 @@ export default function Contact() {
       setMessage("");
 
       await axios.post(
-        "/send-message-chat",
+        `${process.env.HOST}/send-message-chat`,
         {
           userId: user_id,
           message,
@@ -60,7 +60,7 @@ export default function Contact() {
     socket.emit("join_room", user_id);
     const getMessages = async () => {
       try {
-        const response = await axios.get(`/chat-messages`, {
+        const response = await axios.get(`${process.env.HOST}/chat-messages`, {
           headers: {
             authorization: `Bearer ${token}`,
           },

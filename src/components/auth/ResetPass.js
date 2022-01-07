@@ -15,11 +15,11 @@ export default function ResetPass() {
 
   const checkEmail = async () => {
     if (email !== "") {
-      const response = await axios.post("/check-email", {
+      const response = await axios.post(`${process.env.HOST}/check-email`, {
         email,
       });
       if (response.status == 200) {
-        const sendCode = await axios.post("/msg", {
+        const sendCode = await axios.post(`${process.env.HOST}/msg`, {
           email,
         });
         setToggle(!toggle);
@@ -33,7 +33,7 @@ export default function ResetPass() {
   };
 
   const checkCode = async () => {
-    const response = await axios.post("/check-msg", {
+    const response = await axios.post(`${process.env.HOST}/check-msg`, {
       email,
       code,
     });
@@ -55,7 +55,7 @@ export default function ResetPass() {
     console.log(firstPass, "firstPass");
     console.log(secondPass, "secondPass");
     if (firstPass == secondPass) {
-      const response = await axios.put("/re-pass", {
+      const response = await axios.put(`${process.env.HOST}/re-pass`, {
         password: firstPass,
         email: email,
       });

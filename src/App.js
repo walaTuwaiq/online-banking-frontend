@@ -17,12 +17,9 @@ import { setToken } from "./reducers/token";
 import OneHistoryPayment from "./components/home/OneHistoryPayment";
 import OneHistoryTransaction from "./components/home/OneHistoryTransaction";
 import Footer from "./components/Nav/Footer";
-import AddMoney from "./components/AdminSettings/AddMoney";
-import Dashboard from "./components/AdminSettings/Dashboard";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import AdminPage from "./components/AdminSettings/AdminPage";
-import Authorization from "./components/home/Authorization";
 import ResetPass from "./components/auth/ResetPass";
 import Chat from "./components/AdminSettings/Chat";
 import WelcomePage from "./components/home/WelcomePage";
@@ -47,7 +44,7 @@ function App() {
       );
     }
     try {
-      const response = await axios.get("/login", {
+      const response = await axios.get(`${process.env.HOST}/login`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -96,7 +93,6 @@ function App() {
               <Route path="/update-data" exact component={UpdateData} />
               <Route path="/customer-service" exact component={Contact} />
               <Route path="/payment" exact component={Payment} />
-              <Route path="/authorization" exact component={Authorization} />
               <Route path="/currency-today" exact component={Currency} />
               <Route
                 path="/full-data-payment/:id"

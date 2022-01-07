@@ -12,7 +12,7 @@ export default function UpdateData() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get("/user-data", {
+      const response = await axios.get(`${process.env.HOST}/user-data`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -34,7 +34,7 @@ export default function UpdateData() {
   const updateData = async () => {
     if (userInput !== "") {
       const response = await axios.put(
-        "/update-data",
+        `${process.env.HOST}/update-data`,
         {
           userName: userInput,
         },

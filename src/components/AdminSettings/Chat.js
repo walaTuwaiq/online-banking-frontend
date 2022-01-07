@@ -33,7 +33,7 @@ export default function Chat() {
       setMessage("");
 
       const response = await axios.post(
-        "/send-message-admin-chat",
+        `${process.env.HOST}/send-message-admin-chat`,
         {
           userId: id,
           message,
@@ -61,7 +61,7 @@ export default function Chat() {
   useEffect(() => {
     socket.emit("join_room", id);
     const getMessages = async () => {
-      const response = await axios.get(`/chat-messages-admin/${id}`, {
+      const response = await axios.get(`${process.env.HOST}/chat-messages-admin/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

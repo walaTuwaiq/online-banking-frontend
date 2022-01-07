@@ -10,7 +10,7 @@ export default function ViewCard() {
 
   useEffect(() => {
     const getUserCard = async () => {
-      const response = await axios.get("/user-card", {
+      const response = await axios.get(`${process.env.HOST}/user-card`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
