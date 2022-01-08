@@ -12,7 +12,7 @@ export default function AllChats() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`${process.env.URL}/chats-admin`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/chats-admin`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

@@ -19,7 +19,7 @@ export default function Dashboard() {
   let data = [];
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`${process.env.URL}/transactions-in-week`);
+      const response = await axios.get(`${process.env.REACT_APP_URL}/transactions-in-week`);
 
       setTransactios(response.data);
       let a = response.data;

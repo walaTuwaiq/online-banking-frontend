@@ -10,7 +10,7 @@ export default function OneHistoryTransaction() {
 
   useEffect(() => {
     const getHistoryData = async () => {
-      const response = await axios.get(`${process.env.URL}/full-data-transaction/${id}`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/full-data-transaction/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

@@ -24,6 +24,7 @@ import ResetPass from "./components/auth/ResetPass";
 import Chat from "./components/AdminSettings/Chat";
 import WelcomePage from "./components/home/WelcomePage";
 import Currency from "./components/home/Currency";
+require("dotenv").config();
 
 function App() {
   let token = useSelector((state) => state.token.token);
@@ -44,7 +45,7 @@ function App() {
       );
     }
     try {
-      const response = await axios.get(`${process.env.URL}/login`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/login`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

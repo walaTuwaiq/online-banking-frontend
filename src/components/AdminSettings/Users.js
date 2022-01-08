@@ -12,7 +12,7 @@ export default function Users() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`${process.env.URL}/users`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/users`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -28,7 +28,7 @@ export default function Users() {
 
   const deleteUser = async (id) => {
     try {
-      const response = await axios.delete(`${process.env.URL}/remove-user/${id}`, {
+      const response = await axios.delete(`${process.env.REACT_APP_URL}/remove-user/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

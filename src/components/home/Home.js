@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     const getUserData = async () => {
-      const response = await axios.get(`${process.env.URL}/user-data`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/user-data`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

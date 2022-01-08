@@ -42,7 +42,7 @@ export default function Signup() {
       if (check && nationalId.length === 10) {
         try {
           setLoadingToggle(true);
-          const response = await axios.post(`${process.env.URL}/msg`, {
+          const response = await axios.post(`${process.env.REACT_APP_URL}/msg`, {
             email,
           });
           if (response.status === 201) {

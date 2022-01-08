@@ -11,7 +11,7 @@ export default function Cards() {
   useEffect(() => {
     const getCards = async () => {
       try {
-        const response = await axios.get(`${process.env.URL}/cards`, {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/cards`, {
           headers: {
             authorization: `Bearer ${token}`,
           },

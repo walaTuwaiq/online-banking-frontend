@@ -15,11 +15,11 @@ export default function ResetPass() {
 
   const checkEmail = async () => {
     if (email !== "") {
-      const response = await axios.post(`${process.env.URL}/check-email`, {
+      const response = await axios.post(`${process.env.REACT_APP_URL}/check-email`, {
         email,
       });
       if (response.status == 200) {
-        const sendCode = await axios.post(`${process.env.URL}/msg`, {
+        const sendCode = await axios.post(`${process.env.REACT_APP_URL}/msg`, {
           email,
         });
         setToggle(!toggle);
@@ -33,7 +33,7 @@ export default function ResetPass() {
   };
 
   const checkCode = async () => {
-    const response = await axios.post(`${process.env.URL}/check-msg`, {
+    const response = await axios.post(`${process.env.REACT_APP_URL}/check-msg`, {
       email,
       code,
     });
@@ -55,7 +55,7 @@ export default function ResetPass() {
     console.log(firstPass, "firstPass");
     console.log(secondPass, "secondPass");
     if (firstPass == secondPass) {
-      const response = await axios.put(`${process.env.URL}/re-pass`, {
+      const response = await axios.put(`${process.env.REACT_APP_URL}/re-pass`, {
         password: firstPass,
         email: email,
       });

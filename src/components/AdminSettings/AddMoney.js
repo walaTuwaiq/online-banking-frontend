@@ -22,7 +22,7 @@ export default function AddMoney() {
   const addMoney = async () => {
     try {
       const response = await axios.post(
-        `${process.env.URL}/add-balance`,
+        `${process.env.REACT_APP_URL}/add-balance`,
         {
           id,
           newBalance: Number(amount),

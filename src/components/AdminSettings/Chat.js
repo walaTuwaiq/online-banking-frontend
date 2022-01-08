@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "../../styles/Chat.css";
 
-const socket = io.connect(process.env.URL);
+const socket = io.connect(process.env.REACT_APP_URL);
 
 export default function Chat() {
   const [allMessages, setAllMessages] = useState([]);
@@ -33,7 +33,7 @@ export default function Chat() {
       setMessage("");
 
       const response = await axios.post(
-        `${process.env.URL}/send-message-admin-chat`,
+        `${process.env.REACT_APP_URL}/send-message-admin-chat`,
         {
           userId: id,
           message,
@@ -61,7 +61,7 @@ export default function Chat() {
   useEffect(() => {
     socket.emit("join_room", id);
     const getMessages = async () => {
-      const response = await axios.get(`${process.env.URL}/chat-messages-admin/${id}`, {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/chat-messages-admin/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

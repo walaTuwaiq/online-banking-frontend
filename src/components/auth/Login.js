@@ -17,7 +17,7 @@ export default function Login() {
   const submitDate = async () => {
     if (password !== "" && email !== "") {
       try {
-        const response = await axios.post(`${process.env.URL}/login`, {
+        const response = await axios.post(`${process.env.REACT_APP_URL}/login`, {
           email,
           password,
         });
