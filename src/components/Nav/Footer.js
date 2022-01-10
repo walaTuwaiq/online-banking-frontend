@@ -30,9 +30,8 @@ export default function Footer() {
           <a
             href="https://github.com/walaTuwaiq?tab=repositories"
             target="_blank"
-            rel="noopener"
           >
-            <img className="wala-logo" title="GitHub" src={WR} />
+            <img className="wala-logo" title="GitHub" src={WR} alt="wala-logo" />
           </a>
         </li>
       </ul>

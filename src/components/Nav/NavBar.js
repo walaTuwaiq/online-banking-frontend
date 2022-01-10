@@ -20,7 +20,12 @@ export default function NavBar() {
   return (
     <div className="navbar-container">
       <div>
-        <input type="checkbox" checked={checked} onChange={()=>{}} id="check" />
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => {}}
+          id="check"
+        />
         <label
           className="label-check"
           htmlFor="check"
@@ -28,13 +33,14 @@ export default function NavBar() {
             setChecked(!checked);
           }}
         >
-          <img src={menue} />
+          <img src={menue} alt="menu" />
         </label>
       </div>
 
       {token ? (
         <Link to="/home" className="navbar-link">
           <img
+            alt="LOGO"
             className="logo-nav navbar-link"
             title="Alfaiadh"
             onClick={() => {
@@ -46,6 +52,7 @@ export default function NavBar() {
       ) : (
         <Link to="/" className="navbar-link">
           <img
+            alt="LOGO"
             className="logo-nav"
             title="Alfaiadh"
             onClick={() => {

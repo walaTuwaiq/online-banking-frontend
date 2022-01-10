@@ -43,14 +43,6 @@ export default function ResetPass() {
     }
   };
 
-  const saveFirstPass = (e) => {
-    setFirstPass(e.target.value);
-  };
-
-  const saveSecondPass = (e) => {
-    setSecondPass(e.target.value);
-  };
-
   const resetPass = async () => {
     console.log(firstPass, "firstPass");
     console.log(secondPass, "secondPass");

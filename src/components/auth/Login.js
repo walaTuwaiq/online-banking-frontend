@@ -17,6 +17,7 @@ export default function Login() {
   const submitDate = async () => {
     if (password !== "" && email !== "") {
       try {
+        console.log(process.env.REACT_APP_URL,"process.env.REACT_APP_URL");
         const response = await axios.post(`${process.env.REACT_APP_URL}/login`, {
           email,
           password,
@@ -58,7 +59,7 @@ export default function Login() {
   return (
     <div>
       <div className="login-form">
-        <img className="logo-login" src={logoBank} />
+        <img className="logo-login" src={logoBank} alt="LOGO" />
         <label htmlFor="">Email:</label>
         <input
           className="login-input"

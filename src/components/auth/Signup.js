@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "../../styles/Signup.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -42,9 +41,12 @@ export default function Signup() {
       if (check && nationalId.length === 10) {
         try {
           setLoadingToggle(true);
-          const response = await axios.post(`${process.env.REACT_APP_URL}/msg`, {
-            email,
-          });
+          const response = await axios.post(
+            `${process.env.REACT_APP_URL}/msg`,
+            {
+              email,
+            }
+          );
           if (response.status === 201) {
             setToggle(!toggle);
           } else {
@@ -81,7 +83,7 @@ export default function Signup() {
         </div>
       ) : (
         <div className="login-form">
-          <img className="logo-login" src={logoBank} />
+          <img className="logo-login" src={logoBank} alt="LOGO" />
           <label>Email:</label>
           <input
             className="login-input"

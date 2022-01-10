@@ -61,7 +61,6 @@ function App() {
         history.push("/");
         alert("Log in again");
       }
-
       console.log(error.response.data, "error");
     }
   }, [token]);
