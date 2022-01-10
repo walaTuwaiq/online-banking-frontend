@@ -16,6 +16,8 @@ export default function Cards() {
             authorization: `Bearer ${token}`,
           },
         });
+        console.log(response, "response");
+
         if (response.status == 200) {
           setCards(response.data);
           let cardsArray = response.data;
@@ -48,6 +50,7 @@ export default function Cards() {
             return (
               <div key={index}>
                 <p>Iban number: SA{elem.ibanNumber}</p>
+                <p>Full name: {elem.userId.fullName}</p>
                 <p>Balance: {elem.balance}SR</p>
                 {elem.isAcitve && <p>isActive: {elem.isActive.toString()}</p>}
                 <p>Expired date: {elem.expiredDate.substr(0, 10)}</p>

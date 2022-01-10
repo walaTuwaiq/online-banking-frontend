@@ -38,10 +38,10 @@ export default function NavBar() {
       </div>
 
       {token ? (
-        <Link to="/home" className="navbar-link">
+        <Link to="/home">
           <img
             alt="LOGO"
-            className="logo-nav navbar-link"
+            className="logo-nav"
             title="Alfaiadh"
             onClick={() => {
               setChecked(false);
@@ -50,7 +50,7 @@ export default function NavBar() {
           />
         </Link>
       ) : (
-        <Link to="/" className="navbar-link">
+        <Link to="/">
           <img
             alt="LOGO"
             className="logo-nav"
@@ -64,119 +64,114 @@ export default function NavBar() {
       )}
 
       <ul className={checked ? "navbar-listTrue navbar-list" : "navbar-list"}>
-        {token ? (
-          isAdmin ? (
-            ""
+        <div className="leftside-nav">
+          {token ? (
+            isAdmin ? (
+              ""
+            ) : (
+              <li className="navbar-item">
+                <Link
+                  to="/home"
+                  className="navbar-link"
+                  onClick={() => {
+                    setChecked(false);
+                  }}
+                >
+                  Home
+                </Link>
+              </li>
+            )
           ) : (
+            ""
+          )}
+
+          <li className="navbar-item">
+            <Link
+              to="/about-us"
+              className="navbar-link"
+              onClick={() => {
+                setChecked(false);
+              }}
+            >
+              About
+            </Link>
+          </li>
+
+          {isAdmin && (
             <li className="navbar-item">
               <Link
-                to="/home"
+                to="/admin-page"
                 className="navbar-link"
                 onClick={() => {
                   setChecked(false);
                 }}
               >
-                Home
+                Admin Page
               </Link>
             </li>
-          )
-        ) : (
-          ""
-        )}
+          )}
 
-        <li className="navbar-item">
-          <Link
-            to="/about-us"
-            className="navbar-link"
-            onClick={() => {
-              setChecked(false);
-            }}
-          >
-            About
-          </Link>
-        </li>
-
-        {isAdmin && (
-          <li className="navbar-item">
-            <Link
-              to="/admin-page"
-              className="navbar-link"
-              onClick={() => {
-                setChecked(false);
-              }}
-            >
-              Admin Page
-            </Link>
-          </li>
-        )}
-
-        {token && (
-          <li className="navbar-item">
-            <Link
-              to="/currency-today"
-              className="navbar-link"
-              onClick={() => {
-                setChecked(false);
-              }}
-            >
-              Exchange Rates
-            </Link>
-          </li>
-        )}
-
-        {token ? (
-          <li className="navbar-item">
-            <Link
-              to="/"
-              className="navbar-link"
-              onClick={() => {
-                dispatch(setToken("", ""));
-                localStorage.setItem("token", "");
-                localStorage.setItem("admin", "");
-                setChecked(false);
-              }}
-            >
-              Log out
-            </Link>
-          </li>
-        ) : (
-          <li className="navbar-item">
-            <Link
-              to="/login"
-              className="navbar-link"
-              onClick={() => {
-                setChecked(false);
-              }}
-            >
-              Log in
-            </Link>
-          </li>
-        )}
-        {token ? (
-          ""
-        ) : (
-          <li className="navbar-item">
-            <Link
-              to="/signup"
-              className="navbar-link"
-              onClick={() => {
-                setChecked(false);
-              }}
-            >
-              Sign up
-            </Link>
-          </li>
-        )}
-        <div
-          className="span-container"
-          onClick={() => {
-            showHideNav();
-          }}
-        >
-          <span className="span-navbar"></span>
-          <span className="span-navbar"></span>
-          <span className="span-navbar"></span>
+          {token && (
+            <li className="navbar-item">
+              <Link
+                to="/currency-today"
+                className="navbar-link"
+                onClick={() => {
+                  setChecked(false);
+                }}
+              >
+                Exchange Rates
+              </Link>
+            </li>
+          )}
         </div>
+
+        <div className="auth-container">
+          {token ? (
+            <li className="navbar-item">
+              <Link
+                to="/"
+                className="navbar-link"
+                onClick={() => {
+                  dispatch(setToken("", ""));
+                  localStorage.setItem("token", "");
+                  localStorage.setItem("admin", "");
+                  setChecked(false);
+                }}
+              >
+                Log out
+              </Link>
+            </li>
+          ) : (
+            <li className="navbar-item">
+              <Link
+                to="/login"
+                className="navbar-link"
+                onClick={() => {
+                  setChecked(false);
+                }}
+              >
+                Log in
+              </Link>
+            </li>
+          )}
+          {token ? (
+            ""
+          ) : (
+            <li className="navbar-item">
+              <Link
+                to="/signup"
+                className="navbar-link"
+                onClick={() => {
+                  setChecked(false);
+                }}
+              >
+                Sign up
+              </Link>
+            </li>
+          )}
+        </div>
+        
       </ul>
     </div>
   );

@@ -17,6 +17,7 @@ export default function Users() {
           authorization: `Bearer ${token}`,
         },
       });
+      // console.log(response,"response");
 
       setUsers(response.data);
     };

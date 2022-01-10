@@ -14,15 +14,32 @@ body {
   height: 42px;
   position: sticky;
   top: 0%;
+  width: 100%;
+}
+
+.auth-container {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30%;
+}
+
+.leftside-nav {
+  width:70%;
+  display: flex;
+}
+
+.leftside-nav li {
+  width: 100%;
+  height: auto;
 }
 
 .navbar-list {
   display: flex;
   list-style-type: none;
-  justify-content: space-around;
   margin: 0%;
   margin-top: -2.1%;
-  margin-left: 1.5%;
+  padding-left: 12%;
 }
 
 .navbar-item {

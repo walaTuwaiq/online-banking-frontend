@@ -46,9 +46,9 @@ export default function AddMoney() {
   return (
     <div className="add-money">
       <h2>Add Money To Card:</h2>
-      <label>Enter ID To Card:</label>{" "}
-      <input onChange={saveIdInput} type="text" placeholder="ID CARD" />
-      <label>Enter Amount:</label>{" "}
+      <label>Enter Iban number To Card:</label>
+      <input onChange={saveIdInput} type="text" placeholder="iban number CARD" />
+      <label>Enter Amount:</label>
       <input onChange={saveAmountInput} type="number" placeholder="Amount" />
       <button
         onClick={() => {

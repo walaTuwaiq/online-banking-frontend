@@ -1,23 +1,34 @@
 .footer-div {
+  background-color: #f3e4c988;
+  display: flex;
+  color: #8b4513;
+  margin-bottom: 2%;
+}
+
+.footer-div ul {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-evenly;
+}
+
+.footer-icon {
+  width: 30px;
+}
+
+.icons-container {
   display: flex;
   justify-content: space-evenly;
-  color: #837760dc;
-  position: relative;
-  left: -25%;
+  width: 140px;
 }
 
 .list-item-footer {
   list-style: none;
 }
 
-.a-item-footer {
-  text-decoration: none;
-  color: #837760dc;
-}
-
 .a-item-footer:hover {
   text-decoration: underline;
-  color: #83776098;
+  color: #8b45137a;
 }
 
 .wala-logo {
