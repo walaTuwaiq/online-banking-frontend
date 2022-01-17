@@ -57,17 +57,19 @@ export default function UpdateData() {
   };
 
   return (
-    <div>
+    <div className="add-money">
       {userData.user ? (
         toggle ? (
           <div>
+            <br/>
             <input
               type="text"
-              placeholder="user name"
+              placeholder="new user name"
               onChange={(e) => {
                 setUserInput(e.target.value);
               }}
             />
+            <br/>
             <button
               onClick={() => {
                 updateData();
@@ -75,22 +77,22 @@ export default function UpdateData() {
             >
               Save Changes
             </button>
+            <br/>
             {errorMessage}
           </div>
         ) : (
           <div>
-            <p>fullName: {userData.user.fullName}</p>
-            <p>userName: {userName}</p>
-            <p>dateOfBirth: {userData.user.dateOfBirth}</p>
-            <p>lastSeen: {userData.user.lastSeen}</p>
-            <p>nationalId: {userData.user.nationalId}</p>
+            <p><b>fullName: </b>{userData.user.fullName}</p>
+            <p><b>userName: </b>{userName}</p>
             <button
               onClick={() => {
                 changeToggle();
               }}
             >
-              Change user
+              Change user name
             </button>
+            <p><b>Date Of Birth: </b>{userData.user.dateOfBirth}</p>
+            <p><b>National Id: </b>{userData.user.nationalId}</p>
           </div>
         )
       ) : (
@@ -101,8 +103,8 @@ export default function UpdateData() {
         ? userData.userCards.map((elem, index) => {
             return (
               <div key={index}>
-                <p>balance: {elem.balance}SR</p>
-                <p>ibanNumber: SA{elem.ibanNumber}</p>
+                <p><b>Balance: </b>{elem.balance}SR</p>
+                <p><b>Iban Number: </b>SA{elem.ibanNumber}</p>
               </div>
             );
           })

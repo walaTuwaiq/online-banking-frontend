@@ -16,11 +16,14 @@ export default function Home() {
 
   useEffect(() => {
     const getUserData = async () => {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/user-data`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${process.env.REACT_APP_URL}/user-data`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUserData(response.data);
     };
     if (token) {
@@ -130,11 +133,6 @@ export default function Home() {
         <div className="content-item">
           <Link className="content-links" to="/payment">
             Online Payment
-          </Link>
-        </div>
-        <div className="content-item">
-          <Link className="content-links" to="/authorization">
-            Authorization
           </Link>
         </div>
         <div className="content-item">

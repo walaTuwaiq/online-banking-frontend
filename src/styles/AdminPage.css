@@ -82,6 +82,7 @@
 .add-money input {
   width: 40%;
   margin-left: auto;
+  padding: 0.5%;
   margin-right: auto;
   text-align: center;
   margin-top: 1%;

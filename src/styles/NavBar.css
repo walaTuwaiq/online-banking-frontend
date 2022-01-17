@@ -14,7 +14,7 @@ body {
   height: 42px;
   position: sticky;
   top: 0%;
-  width: 100%;
+  padding: 0.5%;
 }
 
 .auth-container {
@@ -25,7 +25,7 @@ body {
 }
 
 .leftside-nav {
-  width:70%;
+  width: 70%;
   display: flex;
 }
 
@@ -55,7 +55,6 @@ body {
 
 .navbar-link:hover {
   color: #8b45137a;
-  text-decoration: underline;
 }
 
 .logo-nav {

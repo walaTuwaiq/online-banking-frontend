@@ -59,7 +59,7 @@ function App() {
         localStorage.setItem("userName", "");
         JSON.parse(localStorage.getItem("user", ""));
         history.push("/");
-        alert("Log in again");
+        alert("Please Log in again");
       }
       console.log(error.response.data, "error");
     }
